@@ -1261,7 +1261,7 @@ html = """<!DOCTYPE html>
         </a>
 
         <nav class="nav-tabs">
-            <button class="tab-btn active" onclick="switchView('book-view')"><i class="fa-solid fa-book-open"></i> 3D FlipBook</button>
+            <button class="tab-btn active" onclick="switchView('book-view')"><i class="fa-solid fa-book-open"></i> 2D FlipBook</button>
             <button class="tab-btn" onclick="switchView('gallery-view')"><i class="fa-solid fa-border-all"></i> All 29 Photos</button>
         </nav>
 
