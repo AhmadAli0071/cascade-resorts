@@ -1188,6 +1188,8 @@ html = """<!DOCTYPE html>
         }
 
         @media (max-width: 768px) {
+            .book-page { display: none; }
+            .book-page.active { display: flex; }
             .book-mini-item { height: 96px; }
             .book-page { min-height: 58vh; padding: 22px 16px 16px 16px; }
             .hero-content { padding: 30px 20px; }
@@ -1678,6 +1680,40 @@ html = """<!DOCTYPE html>
         let currentSpread = 1;
         const totalSpreads = 11;
         let autoFlipInterval = null;
+        const isMobileBook = window.matchMedia('(max-width: 768px)').matches;
+        let mobilePages = [];
+        let mobilePageIndex = 0;
+
+        function setupMobilePages() {
+            mobilePages = Array.from(document.querySelectorAll('.book-page'));
+            mobilePageIndex = 0;
+        }
+
+        function updateMobileDisplay() {
+            const page = mobilePages[mobilePageIndex];
+            document.querySelectorAll('.book-spread').forEach((sp) => {
+                sp.classList.toggle('active', sp.contains(page));
+            });
+            document.querySelectorAll('.book-page').forEach(p => p.classList.remove('active'));
+            page.classList.add('active');
+            document.getElementById('page-num-display').textContent = `Page ${mobilePageIndex + 1} / ${mobilePages.length}`;
+        }
+
+        function mobileNext() {
+            if (mobilePageIndex < mobilePages.length - 1) {
+                mobilePageIndex++;
+                playPageTurnSound();
+                updateMobileDisplay();
+            }
+        }
+
+        function mobilePrev() {
+            if (mobilePageIndex > 0) {
+                mobilePageIndex--;
+                playPageTurnSound();
+                updateMobileDisplay();
+            }
+        }
 
         function playPageTurnSound() {
             if (!soundEnabled) return;
@@ -1838,6 +1874,7 @@ html = """<!DOCTYPE html>
         });
 
         function nextSpread() {
+            if (isMobileBook) { mobileNext(); return; }
             if (currentSpread < totalSpreads) {
                 currentSpread++;
                 playPageTurnSound();
@@ -1846,6 +1883,7 @@ html = """<!DOCTYPE html>
         }
 
         function prevSpread() {
+            if (isMobileBook) { mobilePrev(); return; }
             if (currentSpread > 1) {
                 currentSpread--;
                 playPageTurnSound();
@@ -1854,6 +1892,16 @@ html = """<!DOCTYPE html>
         }
 
         function goToSpread(spreadNum) {
+            if (isMobileBook) {
+                const spread = document.getElementById('spread-' + spreadNum);
+                const pages = spread ? spread.querySelectorAll('.book-page') : [];
+                if (pages.length) {
+                    mobilePageIndex = mobilePages.indexOf(pages[0]);
+                    playPageTurnSound();
+                    updateMobileDisplay();
+                }
+                return;
+            }
             currentSpread = spreadNum;
             playPageTurnSound();
             updateSpreadDisplay();
@@ -1875,10 +1923,15 @@ html = """<!DOCTYPE html>
                 btn.innerHTML = '<i class="fa-solid fa-play"></i>';
             } else {
                 autoFlipInterval = setInterval(() => {
-                    if (currentSpread >= totalSpreads) currentSpread = 1;
-                    else currentSpread++;
-                    playPageTurnSound();
-                    updateSpreadDisplay();
+                    if (isMobileBook) {
+                        if (mobilePageIndex >= mobilePages.length - 1) mobilePageIndex = -1;
+                        mobileNext();
+                    } else {
+                        if (currentSpread >= totalSpreads) currentSpread = 1;
+                        else currentSpread++;
+                        playPageTurnSound();
+                        updateSpreadDisplay();
+                    }
                 }, 4000);
                 btn.innerHTML = '<i class="fa-solid fa-pause"></i>';
             }
@@ -1908,6 +1961,11 @@ html = """<!DOCTYPE html>
             renderMainGallery('All');
             decorateCards();
             setupReveal();
+
+            if (isMobileBook) {
+                setupMobilePages();
+                updateMobileDisplay();
+            }
 
             window.addEventListener('scroll', () => {
                 const nav = document.querySelector('.navbar');
