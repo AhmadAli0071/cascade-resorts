@@ -1758,16 +1758,21 @@ html = """<!DOCTYPE html>
             }
         }
 
-        function switchView(viewId) {
+        function activateView(viewId, fromHistory) {
             document.querySelectorAll('.view-section').forEach(sec => sec.classList.remove('active'));
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-
+            const tab = document.querySelector(`.tab-btn[onclick*="${viewId}"]`);
+            if (tab) tab.classList.add('active');
             document.getElementById(viewId).classList.add('active');
-            if (event && event.currentTarget) event.currentTarget.classList.add('active');
 
             if (viewId === 'gallery-view') {
                 renderMainGallery('All');
             }
+            if (!fromHistory) history.pushState({ view: viewId }, '');
+        }
+
+        function switchView(viewId) {
+            activateView(viewId, false);
         }
 
         function renderMainGallery(filterCategory = 'All', searchQuery = '') {
@@ -1838,11 +1843,25 @@ html = """<!DOCTYPE html>
             currentLightboxIndex = index;
             updateLightboxContent();
             document.getElementById('lightbox-modal').classList.add('active');
+            history.pushState({ lightbox: true }, '');
         }
 
         function closeLightbox() {
-            document.getElementById('lightbox-modal').classList.remove('active');
+            const modal = document.getElementById('lightbox-modal');
+            if (!modal.classList.contains('active')) return;
+            modal.classList.remove('active');
+            if (history.state && history.state.lightbox) history.back();
         }
+
+        window.addEventListener('popstate', () => {
+            const modal = document.getElementById('lightbox-modal');
+            if (modal.classList.contains('active')) {
+                modal.classList.remove('active');
+                return;
+            }
+            const st = history.state;
+            if (st && st.view) activateView(st.view, true);
+        });
 
         function navigateLightbox(direction) {
             currentLightboxIndex += direction;
