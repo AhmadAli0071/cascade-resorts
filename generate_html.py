@@ -254,20 +254,6 @@ html = """<!DOCTYPE html>
             font-weight: 700;
         }
 
-        .btn-icon {
-            width: 38px; height: 38px;
-            border-radius: 50%;
-            border: 1px solid rgba(212,175,55,0.45);
-            background: rgba(20,16,5,0.6);
-            color: var(--gold-primary);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.35s ease;
-        }
-        .btn-icon:hover { background: var(--gold-primary); color: #140f02; transform: rotate(8deg) scale(1.08); box-shadow: var(--gold-glow); }
-
         /* ---------- VIEW SECTIONS ---------- */
         .view-section { display: none; padding-top: 80px; min-height: 100vh; }
         .view-section.active { display: block; animation: viewFade 0.5s ease; }
@@ -1143,8 +1129,15 @@ html = """<!DOCTYPE html>
 
         /* ---------- TABLET & MOBILE: BOOK STACKS VERTICALLY ---------- */
         @media (max-width: 992px) {
-            .navbar { padding: 12px 16px; flex-wrap: wrap; gap: 10px; }
-            .nav-tabs { order: 3; width: 100%; justify-content: center; overflow-x: auto; }
+            .navbar { padding: 8px 14px; flex-wrap: wrap; gap: 6px; justify-content: flex-start; }
+            .navbar .brand-icon { width: 38px; height: 38px; }
+            .navbar .brand-text h1 { font-size: 0.95rem; letter-spacing: 2px; }
+            .navbar .brand-text span { font-size: 0.52rem; letter-spacing: 3px; }
+            .header-actions { margin-left: 10px; gap: 6px; flex-wrap: nowrap; }
+            .header-actions .btn-gold-outline { font-size: 0.68rem; padding: 7px 12px; }
+            .nav-tabs { order: 3; width: 100%; justify-content: center; overflow-x: auto; padding: 4px; }
+            .tab-btn { padding: 7px 14px; font-size: 0.72rem; }
+            .view-section { padding-top: 122px; }
             .book-stage { padding: 20px 14px 40px 14px; justify-content: flex-start; }
             .book-viewport { height: auto; perspective: none; margin-top: 10px; }
             .book-controls {
@@ -1174,7 +1167,6 @@ html = """<!DOCTYPE html>
         }
 
         @media (max-width: 768px) {
-            .view-section { padding-top: 70px; }
             .book-mini-item { height: 96px; }
             .book-page { min-height: 58vh; padding: 22px 16px 16px 16px; }
             .hero-content { padding: 30px 20px; }
@@ -1200,11 +1192,13 @@ html = """<!DOCTYPE html>
         }
 
         @media (max-width: 480px) {
-            .navbar { padding: 10px 12px; }
-            .brand-text h1 { font-size: 1.02rem; letter-spacing: 1px; }
-            .brand-text span { font-size: 0.58rem; letter-spacing: 1px; }
-            .header-actions { flex-wrap: wrap; justify-content: center; gap: 8px; }
-            .btn-gold-outline { font-size: 0.72rem; padding: 8px 13px; }
+            .navbar { padding: 6px 10px; }
+            .brand-text h1 { font-size: 0.9rem; letter-spacing: 1px; }
+            .brand-text span { font-size: 0.5rem; letter-spacing: 2px; }
+            .navbar .brand-icon { width: 34px; height: 34px; }
+            .header-actions { margin-left: 8px; }
+            .header-actions .btn-gold-outline { font-size: 0.64rem; padding: 6px 10px; }
+            .view-section { padding-top: 112px; }
             .book-stage { padding: 16px 10px; }
             .book-page { min-height: 62vh; padding: 18px 12px 12px 12px; }
             .book-mini-item { height: 82px; }
@@ -1242,8 +1236,6 @@ html = """<!DOCTYPE html>
         </nav>
 
         <div class="header-actions">
-            <button class="btn-icon" id="sound-toggle" onclick="toggleSound()" title="Toggle Page Turn Sound"><i class="fa-solid fa-volume-high"></i></button>
-            <button class="btn-icon" onclick="window.print()" title="Print PDF Catalogue"><i class="fa-solid fa-print"></i></button>
             <a href="https://wa.me/923155554648" target="_blank" class="btn-gold-outline"><i class="fa-brands fa-whatsapp"></i> Reserve Now</a>
         </div>
     </header>
@@ -1700,12 +1692,6 @@ html = """<!DOCTYPE html>
             } catch (e) {
                 console.log('Audio error');
             }
-        }
-
-        function toggleSound() {
-            soundEnabled = !soundEnabled;
-            const btn = document.getElementById('sound-toggle');
-            btn.innerHTML = soundEnabled ? '<i class="fa-solid fa-volume-high"></i>' : '<i class="fa-solid fa-volume-xmark"></i>';
         }
 
         function switchView(viewId) {
