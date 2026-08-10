@@ -1145,8 +1145,16 @@
         @media (max-width: 992px) {
             .navbar { padding: 12px 16px; flex-wrap: wrap; gap: 10px; }
             .nav-tabs { order: 3; width: 100%; justify-content: center; overflow-x: auto; }
-            .book-stage { padding: 24px 14px; }
-            .book-viewport { height: auto; perspective: none; }
+            .book-stage { padding: 20px 14px 40px 14px; justify-content: flex-start; }
+            .book-viewport { height: auto; perspective: none; margin-top: 10px; }
+            .book-controls {
+                position: relative;
+                left: auto;
+                top: auto;
+                transform: none;
+                width: fit-content;
+                margin: 18px auto 0 auto;
+            }
             .book-wrapper { height: auto; box-shadow: 0 24px 70px rgba(0,0,0,0.75), 0 0 40px rgba(212,175,55,0.12); }
             .book-spread { position: relative; height: auto; opacity: 1; display: none; flex-direction: column; gap: 20px; padding: 4px 0; }
             .book-spread.active { display: flex; }
@@ -1577,7 +1585,7 @@
             <!-- CONTROLS -->
             <div class="book-controls">
                 <button class="control-btn" onclick="prevSpread()" title="Previous Spread"><i class="fa-solid fa-chevron-left"></i></button>
-                <span class="page-indicator" id="page-num-display">Spread 1 / 7</span>
+                <span class="page-indicator" id="page-num-display">Spread 1 / 11</span>
                 <button class="control-btn" onclick="nextSpread()" title="Next Spread"><i class="fa-solid fa-chevron-right"></i></button>
                 <div style="width:1px; height:20px; background:rgba(255,255,255,0.2);"></div>
                 <button class="control-btn" onclick="toggleAutoFlip()" id="autoflip-btn" title="Auto Turn Pages"><i class="fa-solid fa-play"></i></button>
