@@ -254,6 +254,27 @@ html = """<!DOCTYPE html>
             font-weight: 700;
         }
 
+        .wa-icon {
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            border: 1px solid rgba(212,175,55,0.5);
+            background: rgba(20,16,5,0.6);
+            color: var(--gold-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.05rem;
+            transition: all 0.35s ease;
+        }
+        .wa-icon:hover {
+            background: #25D366;
+            border-color: #25D366;
+            color: #fff;
+            transform: scale(1.1);
+            box-shadow: 0 0 18px rgba(37,211,102,0.5);
+        }
+
         /* ---------- VIEW SECTIONS ---------- */
         .view-section { display: none; padding-top: 80px; min-height: 100vh; }
         .view-section.active { display: block; animation: viewFade 0.5s ease; }
@@ -1134,7 +1155,7 @@ html = """<!DOCTYPE html>
             .navbar .brand-text h1 { font-size: 0.95rem; letter-spacing: 2px; }
             .navbar .brand-text span { font-size: 0.52rem; letter-spacing: 3px; }
             .header-actions { margin-left: 10px; gap: 6px; flex-wrap: nowrap; }
-            .header-actions .btn-gold-outline { font-size: 0.68rem; padding: 7px 12px; }
+            .wa-icon { width: 34px; height: 34px; font-size: 1rem; }
             .nav-tabs { order: 3; width: 100%; justify-content: center; overflow-x: auto; padding: 4px; }
             .tab-btn { padding: 7px 14px; font-size: 0.72rem; }
             .view-section { padding-top: 122px; }
@@ -1197,7 +1218,7 @@ html = """<!DOCTYPE html>
             .brand-text span { font-size: 0.5rem; letter-spacing: 2px; }
             .navbar .brand-icon { width: 34px; height: 34px; }
             .header-actions { margin-left: 8px; }
-            .header-actions .btn-gold-outline { font-size: 0.64rem; padding: 6px 10px; }
+            .wa-icon { width: 30px; height: 30px; font-size: 0.9rem; }
             .view-section { padding-top: 112px; }
             .book-stage { padding: 16px 10px; }
             .book-page { min-height: 62vh; padding: 18px 12px 12px 12px; }
@@ -1236,7 +1257,7 @@ html = """<!DOCTYPE html>
         </nav>
 
         <div class="header-actions">
-            <a href="https://wa.me/923155554648" target="_blank" class="btn-gold-outline"><i class="fa-brands fa-whatsapp"></i> Reserve Now</a>
+            <a href="https://wa.me/923155554648" target="_blank" class="wa-icon" title="Reserve Now on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
         </div>
     </header>
 
