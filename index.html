@@ -1330,24 +1330,85 @@
             .lightbox-prev { left: 8px; }
             .lightbox-next { right: 8px; }
         }
+
+        /* ---------- TABLET & MOBILE: BOOK STACKS VERTICALLY ---------- */
         @media (max-width: 992px) {
-            .book-viewport { height: 520px; }
-            .book-page { padding: 26px 20px 18px 20px; }
-            .book-mini-item { height: 120px; }
-        }
-        @media (max-width: 768px) {
             .navbar { padding: 12px 16px; flex-wrap: wrap; gap: 10px; }
             .nav-tabs { order: 3; width: 100%; justify-content: center; overflow-x: auto; }
-            .book-viewport { height: 430px; }
-            .book-page { padding: 18px 14px 12px 14px; }
-            .book-mini-grid { gap: 8px; }
-            .book-mini-item { height: 92px; }
-            .hero-content { padding: 34px 24px; }
-            .hero-content h2 { font-size: 2.3rem; letter-spacing: 4px; }
-            .cover-title { font-size: 2.2rem; letter-spacing: 3px; }
-            .cover-title span { letter-spacing: 8px; font-size: 1.2rem; }
-            .cover-frame { inset: 10px; gap: 12px; }
+            .book-stage { padding: 24px 14px; }
+            .book-viewport { height: auto; perspective: none; }
+            .book-wrapper { height: auto; box-shadow: 0 24px 70px rgba(0,0,0,0.75), 0 0 40px rgba(212,175,55,0.12); }
+            .book-spread { position: relative; height: auto; opacity: 1; display: none; flex-direction: column; gap: 20px; padding: 4px 0; }
+            .book-spread.active { display: flex; }
+            .book-page { width: 100%; min-height: 56vh; overflow: visible; padding: 28px 22px 20px 22px; }
+            .book-page.left-page, .book-page.right-page {
+                border-radius: 14px;
+                border: 1px solid rgba(212,175,55,0.22);
+                border-left: 1px solid rgba(212,175,55,0.22);
+                border-right: 1px solid rgba(212,175,55,0.22);
+            }
+            .book-mini-item { height: 118px; }
+            .book-mini-grid { grid-template-columns: repeat(2, 1fr); }
+            .mag-grid-featured { grid-template-columns: 1fr; max-width: 540px; margin: 0 auto; }
+            .mag-card .card-img-holder { height: 230px; }
             .section-header h2 { font-size: 1.8rem; }
+            .gallery-controls { flex-direction: column; align-items: stretch; }
+            .search-box { min-width: 0; width: 100%; }
+            .filter-buttons { justify-content: center; }
+        }
+
+        @media (max-width: 768px) {
+            .view-section { padding-top: 70px; }
+            .book-mini-item { height: 96px; }
+            .book-page { min-height: 58vh; padding: 22px 16px 16px 16px; }
+            .hero-content { padding: 30px 20px; }
+            .hero-content h2 { font-size: 2.2rem; letter-spacing: 4px; }
+            .hero-content p { font-size: 0.92rem; }
+            .cover-title { font-size: 2rem; letter-spacing: 3px; }
+            .cover-title span { letter-spacing: 6px; font-size: 1.1rem; }
+            .cover-frame { inset: 10px; gap: 12px; }
+            .mag-card .card-img-holder { height: 200px; }
+            .lightbox-modal { padding: 12px; align-items: flex-start; overflow-y: auto; }
+            .lightbox-content { max-height: none; }
+            .lightbox-img-wrapper { max-height: 44vh; }
+            .lightbox-img-wrapper img { max-height: 44vh; }
+            .lightbox-details { padding: 14px 14px; }
+            .lightbox-details h3 { font-size: 1.1rem; }
+            .lightbox-close { position: fixed; top: 12px; right: 14px; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; background: rgba(10,9,16,0.75); border: 1px solid rgba(212,175,55,0.4); border-radius: 50%; }
+            .lightbox-nav { width: 40px; height: 40px; font-size: 1rem; }
+            .lightbox-prev { left: 4px; }
+            .lightbox-next { right: 4px; }
+            .section-header h2 { font-size: 1.65rem; }
+            .footer-logo { font-size: 1.6rem; letter-spacing: 3px; }
+            .footer-contacts { gap: 18px; font-size: 0.9rem; }
+        }
+
+        @media (max-width: 480px) {
+            .navbar { padding: 10px 12px; }
+            .brand-text h1 { font-size: 1.02rem; letter-spacing: 1px; }
+            .brand-text span { font-size: 0.58rem; letter-spacing: 1px; }
+            .header-actions { flex-wrap: wrap; justify-content: center; gap: 8px; }
+            .btn-gold-outline { font-size: 0.72rem; padding: 8px 13px; }
+            .book-stage { padding: 16px 10px; }
+            .book-page { min-height: 62vh; padding: 18px 12px 12px 12px; }
+            .book-mini-item { height: 82px; }
+            .hero-content { padding: 24px 14px; }
+            .hero-content h2 { font-size: 1.75rem; letter-spacing: 3px; }
+            .hero-content p { font-size: 0.85rem; }
+            .hero-eyebrow { font-size: 0.7rem; }
+            .section-header h2 { font-size: 1.4rem; }
+            .cover-title { font-size: 1.7rem; }
+            .cover-title span { font-size: 1rem; letter-spacing: 4px; }
+            .mag-card .card-img-holder { height: 175px; }
+            .mag-card .card-body { padding: 16px 16px 18px 16px; }
+            .gallery-item .shape-container { height: 200px; }
+            .gallery-item .specs-grid { grid-template-columns: repeat(2, 1fr); }
+            .lightbox-modal { padding: 8px; }
+            .lightbox-img-wrapper { max-height: 40vh; }
+            .lightbox-img-wrapper img { max-height: 40vh; }
+            .filter-btn { font-size: 0.72rem; padding: 7px 13px; }
+            .toc-list .toc-item { font-size: 0.78rem; }
+            .page-number { font-size: 0.62rem; }
         }
 </style>
 </head>
