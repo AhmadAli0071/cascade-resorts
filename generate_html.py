@@ -1,0 +1,2130 @@
+html = """<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cascade Resorts Skardu | Luxury VIP Catalogue 2026</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* ================= ROYAL NIGHT DESIGN SYSTEM ================= */
+        :root {
+            --bg-dark: #07060b;
+            --bg-card: #101019;
+            --bg-card-hover: #171524;
+            --gold-primary: #d4af37;
+            --gold-light: #f3e0a3;
+            --gold-dark: #8a6d1f;
+            --gold-gradient: linear-gradient(120deg, #8a6d1f 0%, #d4af37 25%, #fdf3c9 50%, #d4af37 75%, #8a6d1f 100%);
+            --gold-glow: 0 0 24px rgba(212, 175, 55, 0.35);
+            --text-light: #f2eee0;
+            --text-muted: #9c968a;
+            --border-gold: 1px solid rgba(212, 175, 55, 0.4);
+            --font-title: 'Cinzel', serif;
+            --font-serif: 'Playfair Display', serif;
+            --font-body: 'Montserrat', sans-serif;
+            --shadow-paper: -10px 12px 34px rgba(0,0,0,0.85), inset 0 0 24px rgba(0,0,0,0.45);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            background-image:
+                radial-gradient(1100px 700px at 85% -10%, rgba(212,175,55,0.07), transparent 60%),
+                radial-gradient(900px 600px at -10% 110%, rgba(24,52,40,0.45), transparent 60%),
+                radial-gradient(700px 500px at 50% 50%, rgba(212,175,55,0.03), transparent 70%);
+            color: var(--text-light);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        ::-webkit-scrollbar { width: 9px; }
+        ::-webkit-scrollbar-track { background: #05050a; }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #8a6d1f, #d4af37, #8a6d1f);
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover { background: #d4af37; }
+
+        /* ---------- GOLD TEXT & ORNAMENTS ---------- */
+        .gold-text {
+            background: var(--gold-gradient);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 6s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+
+        .gold-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            color: var(--gold-primary);
+            margin: 14px auto;
+            max-width: 300px;
+        }
+        .gold-divider::before, .gold-divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+        }
+
+        .eyebrow {
+            font-family: var(--font-body);
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-size: 0.72rem;
+            color: var(--gold-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+        }
+        .eyebrow::before, .eyebrow::after {
+            content: "✦";
+            font-size: 0.8rem;
+            color: var(--gold-light);
+            text-shadow: 0 0 10px rgba(212,175,55,.8);
+        }
+
+        /* ---------- SCROLL REVEAL ---------- */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .fade-up.revealed {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* ---------- NAVBAR ---------- */
+        .navbar {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: linear-gradient(180deg, rgba(7,6,11,0.95), rgba(7,6,11,0.85));
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(212,175,55,0.25);
+            padding: 14px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: box-shadow 0.4s ease;
+        }
+        .navbar::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #d4af37, #fdf3c9, #d4af37, transparent);
+        }
+        .navbar.scrolled { box-shadow: 0 10px 40px rgba(0,0,0,0.7); }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+            color: var(--text-light);
+        }
+        .brand-logo .brand-icon {
+            width: 46px; height: 46px;
+            border-radius: 50%;
+            border: 1px solid var(--gold-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle, rgba(212,175,55,0.18), transparent);
+            box-shadow: var(--gold-glow);
+        }
+        .brand-logo i { font-size: 1.3rem; color: var(--gold-primary); }
+        .brand-text h1 {
+            font-family: var(--font-title);
+            font-size: 1.15rem;
+            letter-spacing: 3px;
+            background: var(--gold-gradient);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 7s linear infinite;
+            font-weight: 700;
+        }
+        .brand-text span {
+            font-size: 0.6rem;
+            letter-spacing: 4px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            display: block;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 6px;
+            background: rgba(255,255,255,0.02);
+            padding: 5px;
+            border-radius: 40px;
+            border: 1px solid rgba(212,175,55,0.15);
+        }
+        .tab-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            padding: 9px 20px;
+            border-radius: 30px;
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.35s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .tab-btn:hover { color: var(--gold-light); transform: translateY(-1px); }
+        .tab-btn.active {
+            background: var(--gold-gradient);
+            color: #140f02;
+            font-weight: 700;
+            box-shadow: 0 4px 20px rgba(212,175,55,0.4);
+        }
+
+        .header-actions { display: flex; align-items: center; gap: 10px; }
+        .btn-gold-outline {
+            border: 1px solid var(--gold-primary);
+            background: transparent;
+            color: var(--gold-light);
+            padding: 9px 18px;
+            border-radius: 3px;
+            font-family: var(--font-body);
+            font-size: 0.78rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.35s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-gold-outline::after {
+            content: "";
+            position: absolute;
+            top: 0; left: -80%;
+            width: 50%; height: 100%;
+            background: linear-gradient(105deg, transparent, rgba(255,255,255,0.35), transparent);
+            transform: skewX(-20deg);
+            transition: left 0.6s ease;
+        }
+        .btn-gold-outline:hover {
+            background: linear-gradient(120deg, #8a6d1f, #d4af37);
+            color: #140f02;
+            box-shadow: 0 6px 24px rgba(212,175,55,0.45);
+            border-color: var(--gold-light);
+        }
+        .btn-gold-outline:hover::after { left: 120%; }
+        .btn-gold-outline.gold-filled {
+            background: var(--gold-gradient);
+            color: #140f02;
+            border: none;
+            font-weight: 700;
+        }
+
+        .btn-icon {
+            width: 38px; height: 38px;
+            border-radius: 50%;
+            border: 1px solid rgba(212,175,55,0.45);
+            background: rgba(20,16,5,0.6);
+            color: var(--gold-primary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.35s ease;
+        }
+        .btn-icon:hover { background: var(--gold-primary); color: #140f02; transform: rotate(8deg) scale(1.08); box-shadow: var(--gold-glow); }
+
+        /* ---------- VIEW SECTIONS ---------- */
+        .view-section { display: none; padding-top: 80px; min-height: 100vh; }
+        .view-section.active { display: block; animation: viewFade 0.5s ease; }
+        @keyframes viewFade { from { opacity: 0; } to { opacity: 1; } }
+
+        /* ---------- STYLISH IMAGE SHAPES ---------- */
+        .shape-arch {
+            border-radius: 190px 190px 14px 14px !important;
+            border: 2px solid var(--gold-primary);
+            box-shadow: 0 0 0 1px rgba(212,175,55,0.3), 0 20px 45px rgba(0,0,0,0.6), var(--gold-glow);
+            overflow: hidden;
+            position: relative;
+        }
+        .shape-arch::after {
+            content: "";
+            position: absolute;
+            inset: 5px;
+            border: 1px solid rgba(243,224,163,0.35);
+            border-radius: 185px 185px 10px 10px;
+            pointer-events: none;
+        }
+
+        .shape-gold-frame {
+            border: 1px solid var(--gold-primary);
+            padding: 9px;
+            background: linear-gradient(135deg, rgba(212,175,55,0.14), rgba(212,175,55,0.02));
+            outline: 1px solid rgba(212,175,55,0.28);
+            outline-offset: -14px;
+            box-shadow: 0 18px 40px rgba(0,0,0,0.7);
+            overflow: hidden;
+            position: relative;
+        }
+        .shape-gold-frame::before {
+            content: "";
+            position: absolute;
+            inset: -1px;
+            background: linear-gradient(120deg, transparent 30%, rgba(253,243,201,0.35) 50%, transparent 70%);
+            background-size: 250% auto;
+            animation: frameSheen 5s linear infinite;
+            pointer-events: none;
+        }
+        @keyframes frameSheen {
+            0% { background-position: 150% 0; }
+            100% { background-position: -150% 0; }
+        }
+
+        .shape-hexagon {
+            clip-path: polygon(12% 0, 88% 0, 100% 12%, 100% 88%, 88% 100%, 12% 100%, 0 88%, 0 12%);
+            filter: drop-shadow(0 14px 24px rgba(0,0,0,0.75));
+            overflow: hidden;
+            position: relative;
+        }
+        .shape-hexagon .img-wrapper::before {
+            content: "";
+            position: absolute;
+            inset: 6%;
+            border: 1px solid rgba(212,175,55,0.55);
+            clip-path: inherit;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .shape-asymmetric {
+            border-radius: 46px 10px 46px 10px !important;
+            border: 1px solid var(--gold-primary);
+            box-shadow: 0 18px 36px rgba(0,0,0,0.7);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .shape-leaf {
+            clip-path: polygon(50% 0, 100% 38%, 84% 100%, 16% 100%, 0 38%);
+            filter: drop-shadow(0 14px 24px rgba(0,0,0,0.75));
+            overflow: hidden;
+            position: relative;
+        }
+        .shape-leaf .img-wrapper::before {
+            content: "";
+            position: absolute;
+            inset: 5%;
+            border: 1px solid rgba(212,175,55,0.55);
+            clip-path: inherit;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .shape-oval {
+            clip-path: ellipse(50% 46% at 50% 50%);
+            filter: drop-shadow(0 14px 24px rgba(0,0,0,0.75));
+            overflow: hidden;
+            position: relative;
+        }
+        .shape-oval .img-wrapper::before {
+            content: "";
+            position: absolute;
+            inset: 5%;
+            border: 1px solid rgba(212,175,55,0.55);
+            clip-path: inherit;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .img-wrapper {
+            position: relative;
+            width: 100%; height: 100%;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .img-wrapper img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), filter 0.5s ease;
+        }
+        .img-wrapper:hover img { transform: scale(1.12) rotate(0.5deg); filter: saturate(1.15) brightness(1.05); }
+
+        .img-overlay-badge {
+            position: absolute;
+            bottom: 14px; left: 14px; right: 14px;
+            background: linear-gradient(90deg, rgba(7,6,11,0.92), rgba(7,6,11,0.7));
+            backdrop-filter: blur(10px);
+            border-left: 3px solid var(--gold-primary);
+            padding: 9px 13px;
+            border-radius: 0 5px 5px 0;
+            pointer-events: none;
+            transform: translateY(6px);
+            opacity: 0.92;
+            transition: all 0.4s ease;
+        }
+        .img-wrapper:hover .img-overlay-badge { transform: none; opacity: 1; }
+        .img-overlay-badge h4 { font-family: var(--font-title); font-size: 0.8rem; color: var(--gold-light); margin-bottom: 2px; letter-spacing: 0.5px; }
+        .img-overlay-badge p { font-size: 0.68rem; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+        /* ---------- 3D FLIPBOOK ---------- */
+        .book-stage {
+            width: 100%;
+            min-height: calc(100vh - 80px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            background:
+                radial-gradient(900px 600px at 50% 40%, rgba(212,175,55,0.08), transparent 65%),
+                radial-gradient(circle at center, #12101c 0%, #06050a 100%);
+            position: relative;
+        }
+        .book-stage::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(212,175,55,0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(212,175,55,0.025) 1px, transparent 1px);
+            background-size: 44px 44px;
+            pointer-events: none;
+        }
+
+        .book-viewport {
+            perspective: 2600px;
+            width: 100%;
+            max-width: 1180px;
+            height: 660px;
+            position: relative;
+            margin: 0 auto;
+        }
+        .book-wrapper {
+            width: 100%; height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            border-radius: 10px;
+            box-shadow:
+                0 40px 100px rgba(0,0,0,0.9),
+                0 0 60px rgba(212,175,55,0.12);
+        }
+        .book-spread {
+            display: flex;
+            width: 100%; height: 100%;
+            position: absolute;
+            top: 0; left: 0;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.55s ease;
+        }
+        .book-spread.active { opacity: 1; pointer-events: auto; }
+
+        .book-page {
+            width: 50%;
+            height: 100%;
+            background:
+                repeating-linear-gradient(0deg, rgba(255,255,255,0.012) 0 1px, transparent 1px 4px),
+                linear-gradient(120deg, #121020 0%, #191428 55%, #131021 100%);
+            border: 1px solid rgba(212,175,55,0.22);
+            overflow: hidden;
+            padding: 40px 34px 26px 34px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+        .book-page.left-page {
+            border-radius: 10px 0 0 10px;
+            border-right: 2px solid #1a1410;
+            background:
+                repeating-linear-gradient(0deg, rgba(255,255,255,0.012) 0 1px, transparent 1px 4px),
+                linear-gradient(to right, #0f0d1a 0%, #171326 85%, #1f1932 100%);
+        }
+        .book-page.right-page {
+            border-radius: 0 10px 10px 0;
+            border-left: 2px solid #1a1410;
+            background:
+                repeating-linear-gradient(0deg, rgba(255,255,255,0.012) 0 1px, transparent 1px 4px),
+                linear-gradient(to left, #0f0d1a 0%, #171326 85%, #1f1932 100%);
+        }
+        .book-page::before {
+            content: "";
+            position: absolute;
+            top: 14px; left: 14px;
+            width: 30px; height: 30px;
+            border-top: 1px solid rgba(212,175,55,0.6);
+            border-left: 1px solid rgba(212,175,55,0.6);
+            border-top-left-radius: 6px;
+            pointer-events: none;
+        }
+        .book-page::after {
+            content: "";
+            position: absolute;
+            bottom: 14px; right: 14px;
+            width: 30px; height: 30px;
+            border-bottom: 1px solid rgba(212,175,55,0.6);
+            border-right: 1px solid rgba(212,175,55,0.6);
+            border-bottom-right-radius: 6px;
+            pointer-events: none;
+        }
+
+        .page-number {
+            font-family: var(--font-title);
+            font-size: 0.72rem;
+            color: var(--gold-primary);
+            letter-spacing: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid rgba(212,175,55,0.25);
+            padding-top: 12px;
+            margin-top: 16px;
+        }
+        .page-number::after { content: "❖"; color: var(--gold-light); }
+
+        .page-head-label {
+            font-size: 0.68rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .page-head-label::before { content: "✦"; }
+        .page-head-label::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, var(--gold-primary), transparent);
+        }
+        .page-title {
+            font-family: var(--font-title);
+            color: var(--gold-light);
+            letter-spacing: 1px;
+            margin-bottom: 14px;
+        }
+
+        /* ---------- COVER PAGE ---------- */
+        .page-cover {
+            width: 100% !important;
+            background:
+                radial-gradient(600px 400px at 50% 30%, rgba(212,175,55,0.14), transparent 65%),
+                radial-gradient(circle at center, #241a08 0%, #0d0903 70%) !important;
+            border: 2px solid var(--gold-primary) !important;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px !important;
+            position: relative;
+        }
+        .cover-frame {
+            position: absolute;
+            inset: 16px;
+            border: 1px solid rgba(212,175,55,0.55);
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            padding: 20px;
+            background: rgba(0,0,0,0.25);
+        }
+        .cover-frame::before {
+            content: "";
+            position: absolute;
+            inset: 7px;
+            border: 1px dashed rgba(212,175,55,0.35);
+            border-radius: 3px;
+            pointer-events: none;
+        }
+        .cover-orn { display: flex; gap: 18px; color: var(--gold-primary); font-size: 0.95rem; }
+        .cover-orn span { text-shadow: 0 0 12px rgba(212,175,55,0.9); animation: twinkle 3s ease-in-out infinite; }
+        .cover-orn span:nth-child(2) { animation-delay: 0.6s; }
+        .cover-orn span:nth-child(3) { animation-delay: 1.2s; }
+        @keyframes twinkle { 0%,100% { opacity: 1; transform: scale(1);} 50% { opacity: 0.45; transform: scale(0.85);} }
+
+        .cover-crest {
+            font-size: 3.2rem;
+            color: var(--gold-primary);
+            filter: drop-shadow(0 0 18px rgba(212,175,55,0.85));
+            animation: floatY 4.5s ease-in-out infinite;
+        }
+        @keyframes floatY { 0%,100% { transform: translateY(0);} 50% { transform: translateY(-9px);} }
+
+        .cover-title {
+            font-family: var(--font-title);
+            font-size: 3.1rem;
+            line-height: 1.15;
+            letter-spacing: 6px;
+            background: var(--gold-gradient);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 5s linear infinite;
+            font-weight: 700;
+        }
+        .cover-title span {
+            display: block;
+            letter-spacing: 14px;
+            font-size: 1.6rem;
+            margin-top: 4px;
+            color: #f7ecd0;
+            -webkit-text-fill-color: #f7ecd0;
+        }
+        .cover-subtitle {
+            font-family: var(--font-serif);
+            font-size: 1.02rem;
+            font-style: italic;
+            color: var(--gold-light);
+            letter-spacing: 1px;
+            line-height: 1.7;
+            text-shadow: 0 2px 14px rgba(0,0,0,0.8);
+        }
+        .cover-rule {
+            width: 130px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+            position: relative;
+        }
+        .cover-rule::after {
+            content: "❖";
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--gold-light);
+            background: #171103;
+            padding: 0 8px;
+            font-size: 0.8rem;
+        }
+        .cover-place {
+            font-size: 0.72rem;
+            letter-spacing: 5px;
+            color: var(--gold-light);
+        }
+        .cover-badge {
+            font-size: 0.6rem;
+            letter-spacing: 3px;
+            color: var(--text-muted);
+            border: 1px solid rgba(212,175,55,0.6);
+            padding: 6px 18px;
+            border-radius: 30px;
+            background: rgba(212,175,55,0.06);
+        }
+
+        /* ---------- BOOK CONTROLS ---------- */
+        .book-controls {
+            position: absolute;
+            left: 50%;
+            top: 24px;
+            transform: translateX(-50%);
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: rgba(16,12,4,0.88);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(212,175,55,0.45);
+            padding: 10px 26px;
+            border-radius: 50px;
+            box-shadow: 0 14px 40px rgba(0,0,0,0.8), var(--gold-glow);
+        }
+        .control-btn {
+            background: transparent;
+            border: none;
+            color: var(--gold-light);
+            font-size: 1.05rem;
+            cursor: pointer;
+            padding: 9px 13px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        .control-btn:hover { background: var(--gold-primary); color: #140f02; transform: scale(1.12); box-shadow: var(--gold-glow); }
+        .page-indicator {
+            font-family: var(--font-title);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            color: var(--gold-light);
+            padding: 0 12px;
+            white-space: nowrap;
+        }
+
+        /* ---------- TOC ---------- */
+        .toc-list { list-style: none; margin-top: 16px; }
+        .toc-item {
+            padding: 11px 4px;
+            border-bottom: 1px dashed rgba(212,175,55,0.28);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .toc-item:hover { color: var(--gold-light); padding-left: 14px; background: linear-gradient(90deg, rgba(212,175,55,0.08), transparent); }
+        .toc-item::before { content: "❖"; color: var(--gold-dark); font-size: 0.65rem; margin-right: 8px; transition: color 0.3s; }
+        .toc-item:hover::before { color: var(--gold-light); }
+        .toc-title { font-family: var(--font-title); font-size: 0.85rem; letter-spacing: 1px; }
+        .toc-page {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            color: var(--gold-primary);
+            font-weight: 600;
+            background: rgba(212,175,55,0.1);
+            padding: 2px 10px;
+            border-radius: 20px;
+        }
+
+        /* ---------- BOOK MINI GALLERY ---------- */
+        .book-mini-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 14px 0;
+        }
+        .book-mini-item {
+            position: relative;
+            height: 148px;
+            overflow: hidden;
+            border-radius: 5px;
+            border: 1px solid rgba(212,175,55,0.45);
+            cursor: pointer;
+            transition: all 0.35s ease;
+            box-shadow: 0 8px 22px rgba(0,0,0,0.5);
+        }
+        .book-mini-item::after {
+            content: "";
+            position: absolute;
+            inset: 4px;
+            border: 1px solid rgba(212,175,55,0.25);
+            border-radius: 2px;
+            pointer-events: none;
+        }
+        .book-mini-item:hover { transform: translateY(-4px) scale(1.02); border-color: var(--gold-light); box-shadow: 0 14px 30px rgba(0,0,0,0.7), var(--gold-glow); }
+        .book-mini-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .book-mini-item:hover img { transform: scale(1.1); }
+        .book-mini-item .mini-label {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.92), transparent);
+            padding: 22px 10px 7px 10px;
+            font-size: 0.62rem;
+            font-family: var(--font-title);
+            letter-spacing: 1px;
+            color: var(--gold-light);
+            pointer-events: none;
+        }
+
+        /* ---------- MAGAZINE HERO ---------- */
+        .magazine-hero {
+            position: relative;
+            height: 82vh;
+            min-height: 480px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(212,175,55,0.5);
+        }
+        .hero-bg {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            filter: brightness(0.45) contrast(1.15) saturate(1.1);
+            animation: kenburns 22s ease-in-out infinite alternate;
+        }
+        @keyframes kenburns {
+            0% { transform: scale(1) translate(0, 0); }
+            100% { transform: scale(1.14) translate(-1.5%, 1.5%); }
+        }
+        .hero-shade {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(700px 400px at 50% 45%, rgba(212,175,55,0.12), transparent 70%),
+                linear-gradient(to bottom, rgba(7,6,11,0.35), rgba(7,6,11,0.55));
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 880px;
+            padding: 55px 60px;
+            border: 1px solid rgba(212,175,55,0.55);
+            border-radius: 10px;
+            background: rgba(7,6,11,0.55);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.6), inset 0 0 60px rgba(212,175,55,0.06);
+            position: relative;
+        }
+        .hero-content::before, .hero-content::after {
+            content: "";
+            position: absolute;
+            width: 40px; height: 40px;
+            border: 1px solid rgba(212,175,55,0.7);
+        }
+        .hero-content::before { top: 8px; left: 8px; border-right: none; border-bottom: none; border-top-left-radius: 4px; }
+        .hero-content::after { bottom: 8px; right: 8px; border-left: none; border-top: none; border-bottom-right-radius: 4px; }
+        .hero-eyebrow {
+            display: block;
+            font-size: 0.7rem;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            margin-bottom: 16px;
+            text-shadow: 0 0 14px rgba(212,175,55,0.6);
+        }
+        .hero-content h2 {
+            font-family: var(--font-title);
+            font-size: 4rem;
+            letter-spacing: 8px;
+            background: var(--gold-gradient);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 6s linear infinite;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+        .hero-content p {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            color: var(--gold-light);
+            font-style: italic;
+            line-height: 1.8;
+        }
+        .hero-cta {
+            margin-top: 28px;
+        }
+        .scroll-hint {
+            position: absolute;
+            bottom: 26px; left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            width: 26px; height: 44px;
+            border: 1px solid rgba(212,175,55,0.6);
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            padding-top: 7px;
+        }
+        .scroll-hint span {
+            width: 4px; height: 9px;
+            border-radius: 3px;
+            background: var(--gold-primary);
+            animation: scrollDot 1.8s ease-in-out infinite;
+        }
+        @keyframes scrollDot {
+            0% { transform: translateY(0); opacity: 1; }
+            70% { transform: translateY(14px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 0; }
+        }
+
+        /* ---------- MAGAZINE SECTIONS ---------- */
+        .magazine-section {
+            padding: 90px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .section-header { text-align: center; margin-bottom: 55px; }
+        .section-header .eyebrow { margin-bottom: 10px; }
+        .section-header h2 {
+            font-family: var(--font-title);
+            font-size: 2.6rem;
+            letter-spacing: 3px;
+            color: var(--text-light);
+            font-weight: 600;
+            text-shadow: 0 4px 30px rgba(0,0,0,0.8);
+        }
+
+        .mag-grid-featured {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+        .mag-card {
+            background: linear-gradient(160deg, #131120, #0d0c14);
+            border-radius: 12px;
+            border: 1px solid rgba(212,175,55,0.18);
+            transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        .mag-card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .mag-card:hover {
+            transform: translateY(-12px);
+            border-color: rgba(212,175,55,0.55);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.65), var(--gold-glow);
+        }
+        .mag-card:hover::before { opacity: 1; }
+        .mag-card .card-img-holder { height: 290px; padding: 16px; }
+        .mag-card .card-body { padding: 22px 26px 26px 26px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        .mag-card .card-body h3 { font-family: var(--font-title); font-size: 1.15rem; color: var(--gold-light); margin-bottom: 9px; letter-spacing: 1px; }
+        .mag-card .card-body p { font-size: 0.83rem; color: var(--text-muted); margin-bottom: 18px; line-height: 1.75; }
+
+        /* ---------- AMENITIES ---------- */
+        .amenities-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 22px;
+            margin-top: 45px;
+        }
+        .amenity-card {
+            background: linear-gradient(170deg, rgba(255,255,255,0.035), rgba(255,255,255,0.008));
+            border: 1px solid rgba(212,175,55,0.22);
+            padding: 30px 22px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .amenity-card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 0; height: 2px;
+            background: var(--gold-gradient);
+            transition: width 0.45s ease;
+        }
+        .amenity-card:hover { background: rgba(212,175,55,0.08); border-color: var(--gold-primary); transform: translateY(-8px); box-shadow: var(--gold-glow); }
+        .amenity-card:hover::before { width: 100%; }
+        .amenity-card .amenity-icon {
+            width: 62px; height: 62px;
+            margin: 0 auto 16px auto;
+            border-radius: 50%;
+            border: 1px solid rgba(212,175,55,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle, rgba(212,175,55,0.15), transparent);
+            box-shadow: inset 0 0 16px rgba(212,175,55,0.15);
+        }
+        .amenity-card i { font-size: 1.6rem; color: var(--gold-primary); }
+        .amenity-card h4 { font-family: var(--font-title); font-size: 0.9rem; letter-spacing: 1.5px; color: var(--text-light); }
+
+        /* ---------- GALLERY ---------- */
+        .gallery-controls {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 45px;
+            background: linear-gradient(160deg, rgba(19,17,32,0.9), rgba(10,9,16,0.9));
+            padding: 22px;
+            border-radius: 12px;
+            border: 1px solid rgba(212,175,55,0.3);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+        .filter-buttons { display: flex; flex-wrap: wrap; gap: 10px; }
+        .filter-btn {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(212,175,55,0.25);
+            color: var(--text-muted);
+            padding: 9px 20px;
+            border-radius: 30px;
+            font-size: 0.78rem;
+            font-family: var(--font-body);
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--gold-gradient);
+            color: #140f02;
+            font-weight: 700;
+            border-color: var(--gold-light);
+            box-shadow: 0 4px 18px rgba(212,175,55,0.4);
+        }
+        .search-box { position: relative; min-width: 270px; }
+        .search-box input {
+            width: 100%;
+            background: rgba(0,0,0,0.5);
+            border: 1px solid rgba(212,175,55,0.4);
+            padding: 11px 16px 11px 44px;
+            border-radius: 30px;
+            color: var(--text-light);
+            font-size: 0.83rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        .search-box input:focus { border-color: var(--gold-light); box-shadow: var(--gold-glow); }
+        .search-box i {
+            position: absolute;
+            left: 18px; top: 50%;
+            transform: translateY(-50%);
+            color: var(--gold-primary);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(335px, 1fr));
+            gap: 26px;
+        }
+        @media (max-width: 1200px) { .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; } }
+        @media (max-width: 640px) { .gallery-grid { grid-template-columns: 1fr; gap: 16px; } }
+
+        .gallery-item {
+            background: linear-gradient(165deg, #141221, #0d0c15);
+            border-radius: 14px;
+            border: 1px solid rgba(212,175,55,0.16);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+        }
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            border-color: rgba(212,175,55,0.5);
+            box-shadow: 0 26px 55px rgba(0,0,0,0.6), var(--gold-glow);
+        }
+        .gallery-item::before {
+            content: "";
+            position: absolute;
+            top: 9px;
+            left: 9px;
+            width: 28px;
+            height: 28px;
+            border-top: 2px solid var(--gold-primary);
+            border-left: 2px solid var(--gold-primary);
+            border-top-left-radius: 10px;
+            z-index: 3;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+        .gallery-item::after {
+            content: "";
+            position: absolute;
+            bottom: 9px;
+            right: 9px;
+            width: 28px;
+            height: 28px;
+            border-bottom: 2px solid var(--gold-primary);
+            border-right: 2px solid var(--gold-primary);
+            border-bottom-right-radius: 10px;
+            z-index: 3;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+        .gallery-item:hover::before,
+        .gallery-item:hover::after { opacity: 1; }
+        .gallery-item .img-wrapper::after {
+            content: "";
+            position: absolute;
+            top: -15%;
+            bottom: -15%;
+            left: -35%;
+            width: 35%;
+            background: linear-gradient(100deg, transparent, rgba(255,255,255,0.22), transparent);
+            transform: skewX(-18deg) translateX(-260%);
+            transition: transform 0.9s ease;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .gallery-item:hover .img-wrapper::after {
+            transform: skewX(-18deg) translateX(760%);
+        }
+        .gallery-item .shape-container { height: 235px; padding: 14px; }
+        .gallery-item .gallery-num {
+            position: absolute;
+            top: 22px;
+            left: 22px;
+            z-index: 2;
+            font-family: var(--font-title);
+            font-size: 0.66rem;
+            letter-spacing: 3px;
+            color: var(--gold-light);
+            background: rgba(10,9,16,0.72);
+            border: 1px solid rgba(212,175,55,0.35);
+            backdrop-filter: blur(6px);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .gallery-item .info {
+            padding: 16px 18px 16px 18px;
+            background: rgba(7,6,11,0.6);
+            border-top: 1px solid rgba(212,175,55,0.12);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .gallery-item .info-title {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        .gallery-item .info-title h4 {
+            font-family: var(--font-title);
+            font-size: 1rem;
+            color: var(--gold-light);
+            letter-spacing: 0.5px;
+            line-height: 1.35;
+            margin: 0;
+        }
+        .gallery-item .meta-tag {
+            display: inline-block;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--gold-light);
+            background: linear-gradient(90deg, rgba(212,175,55,0.2), rgba(212,175,55,0.05));
+            border: 1px solid rgba(212,175,55,0.3);
+            padding: 4px 11px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+        .gallery-item .info-desc {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin: 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            min-height: 2.5em;
+        }
+        .gallery-item .specs-grid {
+            grid-template-columns: repeat(auto-fit, minmax(92px, 1fr));
+            gap: 7px;
+            margin: 0;
+        }
+        .gallery-item .spec-box { padding: 7px 8px; }
+        .gallery-item .gallery-foot {
+            margin-top: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: wrap;
+            padding-top: 11px;
+            border-top: 1px dashed rgba(212,175,55,0.15);
+        }
+        .gallery-item .feature-chips { margin: 0; gap: 6px; flex: 1; min-width: 0; }
+        .gallery-item .feature-chips .feature-chip { font-size: 0.62rem; padding: 4px 9px; }
+        .gallery-item .view-details-btn { font-size: 0.68rem; padding: 8px 15px; white-space: nowrap; }
+
+        /* ---------- FEATURE CHIPS & SPECS ---------- */
+        .feature-chips { display: flex; flex-wrap: wrap; gap: 7px; margin: 12px 0 14px 0; }
+        .feature-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.66rem;
+            color: var(--gold-light);
+            background: rgba(212,175,55,0.08);
+            border: 1px solid rgba(212,175,55,0.35);
+            padding: 4px 11px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+        .feature-chip i { color: var(--gold-primary); font-size: 0.6rem; }
+        .specs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 9px; margin: 12px 0 6px 0; }
+        .spec-box {
+            background: rgba(255,255,255,0.025);
+            border: 1px solid rgba(212,175,55,0.14);
+            border-left: 2px solid var(--gold-primary);
+            border-radius: 5px;
+            padding: 8px 11px;
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+        .spec-box:hover { background: rgba(212,175,55,0.07); transform: translateY(-2px); }
+        .spec-box .spec-key { display: block; font-size: 0.58rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--gold-primary); margin-bottom: 3px; }
+        .spec-box .spec-val { display: block; font-size: 0.74rem; font-weight: 600; color: var(--text-light); }
+        .view-details-btn { margin-top: 12px; align-self: flex-start; }
+
+        /* ---------- LIGHTBOX ---------- */
+        .lightbox-modal {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            z-index: 2000;
+            background: rgba(4,4,8,0.95);
+            backdrop-filter: blur(18px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+        .lightbox-modal.active { display: flex; animation: viewFade 0.35s ease; }
+        .lightbox-content {
+            position: relative;
+            max-width: 1240px;
+            width: 100%;
+            max-height: 92vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .lightbox-img-wrapper {
+            max-height: 68vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-radius: 12px;
+            border: 2px solid var(--gold-primary);
+            box-shadow: 0 0 0 1px rgba(212,175,55,0.4), 0 0 80px rgba(212,175,55,0.2), 0 40px 90px rgba(0,0,0,0.9);
+            position: relative;
+        }
+        .lightbox-img-wrapper img { max-width: 100%; max-height: 68vh; object-fit: contain; }
+        .lightbox-details {
+            margin-top: 18px;
+            text-align: center;
+            max-width: 820px;
+            background: linear-gradient(160deg, rgba(19,17,32,0.9), rgba(10,9,16,0.9));
+            border: 1px solid rgba(212,175,55,0.3);
+            border-radius: 10px;
+            padding: 20px 28px;
+        }
+        .lightbox-details h3 { font-family: var(--font-title); font-size: 1.35rem; color: var(--gold-light); margin-bottom: 6px; letter-spacing: 1px; }
+        .lightbox-details > p { font-size: 0.88rem; color: var(--text-muted); }
+        .lightbox-close {
+            position: absolute;
+            top: -46px; right: 0;
+            color: var(--gold-light);
+            font-size: 2.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 14px rgba(212,175,55,0.6);
+        }
+        .lightbox-close:hover { color: var(--gold-primary); transform: rotate(90deg); }
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 54px; height: 54px;
+            background: linear-gradient(160deg, rgba(30,26,50,0.95), rgba(15,13,28,0.95));
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: all 0.35s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        }
+        .lightbox-nav:hover { background: var(--gold-gradient); color: #140f02; transform: translateY(-50%) scale(1.12); box-shadow: var(--gold-glow); }
+        .lightbox-prev { left: -80px; }
+        .lightbox-next { right: -80px; }
+        .lightbox-features { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 12px 0; }
+        .lightbox-specs { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 9px; margin-top: 10px; max-width: 720px; margin-left: auto; margin-right: auto; }
+
+        /* ---------- FOOTER ---------- */
+        footer {
+            display: none;
+            background: linear-gradient(180deg, #06050a, #03030a);
+            border-top: 1px solid rgba(212,175,55,0.35);
+            padding: 70px 5% 34px 5%;
+            text-align: center;
+            position: relative;
+        }
+        footer::before {
+            content: "";
+            position: absolute;
+            top: -1px; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+        }
+        .footer-logo {
+            font-family: var(--font-title);
+            font-size: 2.1rem;
+            letter-spacing: 4px;
+            background: var(--gold-gradient);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 7s linear infinite;
+            margin-bottom: 12px;
+        }
+        .footer-contacts {
+            display: flex;
+            justify-content: center;
+            gap: 34px;
+            flex-wrap: wrap;
+            margin: 28px 0;
+            font-size: 1.05rem;
+        }
+        .footer-contacts a {
+            color: var(--gold-light);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            transition: all 0.3s ease;
+        }
+        .footer-contacts a:hover { color: var(--gold-primary); transform: translateY(-3px); text-shadow: 0 0 14px rgba(212,175,55,0.5); }
+
+        /* ---------- PRINT ---------- */
+        @media print {
+            .navbar, .book-controls, .gallery-controls, footer, .lightbox-modal { display: none !important; }
+            body { background: #fff !important; color: #000 !important; }
+            .view-section { display: block !important; padding-top: 0 !important; }
+            .shape-arch, .shape-gold-frame, .shape-hexagon, .shape-asymmetric { border: 1px solid #ccc !important; box-shadow: none !important; }
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 1200px) {
+            .lightbox-prev { left: 8px; }
+            .lightbox-next { right: 8px; }
+        }
+        @media (max-width: 992px) {
+            .book-viewport { height: 520px; }
+            .book-page { padding: 26px 20px 18px 20px; }
+            .book-mini-item { height: 120px; }
+        }
+        @media (max-width: 768px) {
+            .navbar { padding: 12px 16px; flex-wrap: wrap; gap: 10px; }
+            .nav-tabs { order: 3; width: 100%; justify-content: center; overflow-x: auto; }
+            .book-viewport { height: 430px; }
+            .book-page { padding: 18px 14px 12px 14px; }
+            .book-mini-grid { gap: 8px; }
+            .book-mini-item { height: 92px; }
+            .hero-content { padding: 34px 24px; }
+            .hero-content h2 { font-size: 2.3rem; letter-spacing: 4px; }
+            .cover-title { font-size: 2.2rem; letter-spacing: 3px; }
+            .cover-title span { letter-spacing: 8px; font-size: 1.2rem; }
+            .cover-frame { inset: 10px; gap: 12px; }
+            .section-header h2 { font-size: 1.8rem; }
+        }
+</style>
+</head>
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+    <header class="navbar">
+        <a href="#" class="brand-logo">
+            <div class="brand-icon"><i class="fa-solid fa-crown"></i></div>
+            <div class="brand-text">
+                <h1>CASCADE RESORTS</h1>
+                <span>SKARDU • LUXURY CATALOGUE</span>
+            </div>
+        </a>
+
+        <nav class="nav-tabs">
+            <button class="tab-btn active" onclick="switchView('book-view')"><i class="fa-solid fa-book-open"></i> 3D FlipBook</button>
+            <button class="tab-btn" onclick="switchView('scroll-view')"><i class="fa-solid fa-scroll"></i> Magazine View</button>
+            <button class="tab-btn" onclick="switchView('gallery-view')"><i class="fa-solid fa-border-all"></i> All 29 Photos</button>
+        </nav>
+
+        <div class="header-actions">
+            <button class="btn-icon" id="sound-toggle" onclick="toggleSound()" title="Toggle Page Turn Sound"><i class="fa-solid fa-volume-high"></i></button>
+            <button class="btn-icon" onclick="window.print()" title="Print PDF Catalogue"><i class="fa-solid fa-print"></i></button>
+            <a href="https://wa.me/923155554648" target="_blank" class="btn-gold-outline"><i class="fa-brands fa-whatsapp"></i> Reserve Now</a>
+        </div>
+    </header>
+
+    <!-- ================= VIEW 1: 3D FLIPBOOK ================= -->
+    <section id="book-view" class="view-section active">
+        <div class="book-stage">
+            <div class="book-viewport">
+                <div class="book-wrapper" id="flipbook">
+
+                    <!-- SPREAD 1: COVER -->
+                    <div class="book-spread active" id="spread-1">
+                        <div class="book-page page-cover">
+                            <div class="cover-frame">
+                                <div class="cover-orn"><span>✦</span><span>❖</span><span>✦</span></div>
+                                <i class="fa-solid fa-crown cover-crest"></i>
+                                <h1 class="cover-title">CASCADE<span>RESORTS</span></h1>
+                                <p class="cover-subtitle">Where the Shyok River Whispers<br>to the Karakorams</p>
+                                <div class="cover-rule"></div>
+                                <p class="cover-place">GHAWARI &nbsp;•&nbsp; SKARDU &nbsp;•&nbsp; GHANCHE</p>
+                                <span class="cover-badge">OFFICIAL LUXURY CATALOGUE 2026</span>
+                                <div class="cover-orn"><span>✦</span><span>❖</span><span>✦</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SPREAD 2: TOC & WELCOME -->
+                    <div class="book-spread" id="spread-2">
+                        <div class="book-page left-page">
+                            <div>
+                                <span class="page-head-label">Catalogue Index</span>
+                                <h2 style="font-family:var(--font-title); font-size:1.6rem; color:var(--gold-light); margin-bottom:15px;">Table of Contents</h2>
+                                <ul class="toc-list">
+                                    <li class="toc-item" onclick="goToSpread(2)"><span class="toc-title">Welcome & Overview</span><span class="toc-page">Spread 02</span></li>
+                                    <li class="toc-item" onclick="goToSpread(3)"><span class="toc-title">Royal Master Suites</span><span class="toc-page">Spread 03</span></li>
+                                    <li class="toc-item" onclick="goToSpread(4)"><span class="toc-title">Executive Panorama Chambers</span><span class="toc-page">Spread 04</span></li>
+                                    <li class="toc-item" onclick="goToSpread(5)"><span class="toc-title">Sunset & Forest Villa Suites</span><span class="toc-page">Spread 05</span></li>
+                                    <li class="toc-item" onclick="goToSpread(6)"><span class="toc-title">Garden & Karakoram Chambers</span><span class="toc-page">Spread 06</span></li>
+                                    <li class="toc-item" onclick="goToSpread(7)"><span class="toc-title">Honey Oak & Valley View Rooms</span><span class="toc-page">Spread 07</span></li>
+                                    <li class="toc-item" onclick="goToSpread(8)"><span class="toc-title">Signature Suite Gallery</span><span class="toc-page">Spread 08</span></li>
+                                    <li class="toc-item" onclick="goToSpread(9)"><span class="toc-title">River & Orchard Views</span><span class="toc-page">Spread 09</span></li>
+                                    <li class="toc-item" onclick="goToSpread(10)"><span class="toc-title">Chalet & Mountain Exteriors</span><span class="toc-page">Spread 10</span></li>
+                                    <li class="toc-item" onclick="goToSpread(11)"><span class="toc-title">Signature Finale & Booking</span><span class="toc-page">Spread 11</span></li>
+                                </ul>
+                            </div>
+                            <div class="page-number"><span>CASCADE RESORTS</span><span>02</span></div>
+                        </div>
+                        <div class="book-page right-page">
+                            <div>
+                                <span class="page-head-label">Welcome</span>
+                                <h2 style="font-family:var(--font-title); font-size:1.6rem; color:var(--gold-light); margin-bottom:12px;">Sanctuary of Tranquility</h2>
+                                <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:15px;">Spread across 600 Kanals of famous tree lines, cherry orchards, and direct Shyok riverfront, Cascade Resorts offers sophisticated luxury cottages facing the legendary mountain peaks of Ghanche, Skardu.</p>
+                                <div class="shape-arch" style="height:220px;">
+                                    <div class="img-wrapper" onclick="openLightbox(26)">
+                                        <img src="images/img_36.jpg" alt="Cascade Grounds">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="page-number"><span>LUXURY EXPERIENCE</span><span>03</span></div>
+                        </div>
+                    </div>
+
+                    <!-- SPREAD 3: ROYAL SUITES -->
+                    <div class="book-spread" id="spread-3">
+                        <div class="book-page left-page">
+                            <div>
+                                <span class="page-head-label">Chamber Category I</span>
+                                <h2 style="font-family:var(--font-title); font-size:1.5rem; color:var(--gold-light); margin-bottom:12px;">Royal King Master Suite</h2>
+                                <div class="shape-arch" style="height:240px; margin-bottom:15px;">
+                                    <div class="img-wrapper" onclick="openLightbox(0)">
+                                        <img src="images/img_01.jpg" alt="Royal King Master Suite">
+                                    </div>
+                                </div>
+                                <p style="font-size:0.82rem; color:var(--text-muted);">Features hand-crafted wood panel walling, ambient perimeter glow, and orthopedic king bedding.</p>
+                            </div>
+                            <div class="page-number"><span>ROYAL SUITES</span><span>04</span></div>
+                        </div>
+                        <div class="book-page right-page">
+                            <div>
+                                <span class="page-head-label">Chamber Category II</span>
+                                <h2 style="font-family:var(--font-title); font-size:1.5rem; color:var(--gold-light); margin-bottom:12px;">Deluxe Mountain Vista</h2>
+                                <div class="shape-gold-frame" style="height:240px; margin-bottom:15px;">
+                                    <div class="img-wrapper" onclick="openLightbox(1)">
+                                        <img src="images/img_02.jpg" alt="Deluxe Mountain-View Suite">
+                                    </div>
+                                </div>
+                                <p style="font-size:0.82rem; color:var(--text-muted);">Expansive window framed views of the Karakoram sunset with dark mahogany console setup.</p>
+                            </div>
+                            <div class="page-number"><span>DELUXE SUITES</span><span>05</span></div>
+                        </div>
+                    </div>
+
+                    <!-- SPREAD 4: PANORAMA CHAMBERS -->
+                    <div class="book-spread" id="spread-4">
+                        <div class="book-page left-page">
+                            <div>
+                                <span class="page-head-label">Chamber Category III</span>
+                                <h2 style="font-family:var(--font-title); font-size:1.5rem; color:var(--gold-light); margin-bottom:12px;">Executive Panorama Suite</h2>
+                                <div class="shape-hexagon" style="height:240px; margin-bottom:15px;">
+                                    <div class="img-wrapper" onclick="openLightbox(2)">
+                                        <img src="images/img_03.jpg" alt="Executive Panorama Chamber">
+                                    </div>
+                                </div>
+                                <p style="font-size:0.82rem; color:var(--text-muted);">Floor-to-ceiling soundproof glass walls bringing mountain rivers straight to your bedside.</p>
+                            </div>
+                            <div class="page-number"><span>PANORAMA SUITES</span><span>06</span></div>
+                        </div>
+                        <div class="book-page right-page">
+                            <div>
+                                <span class="page-head-label">Chamber Category IV</span>
+                                <h2 style="font-family:var(--font-title); font-size:1.5rem; color:var(--gold-light); margin-bottom:12px;">Presidential Heritage Bedroom</h2>
+                                <div class="shape-asymmetric" style="height:240px; margin-bottom:15px;">
+                                    <div class="img-wrapper" onclick="openLightbox(3)">
+                                        <img src="images/img_04.jpg" alt="Presidential Heritage Bedroom">
+                                    </div>
+                                </div>
+                                <p style="font-size:0.82rem; color:var(--text-muted);">Warm timber walling with custom bedside reading lights and high-thread-count cotton linens.</p>
+                            </div>
+                            <div class="page-number"><span>HERITAGE SUITES</span><span>07</span></div>
+                        </div>
+                    </div>
+
+                    <!-- SPREAD 5: SUNSET & FOREST VILLA SUITES -->
+                    <div class="book-spread" id="spread-5">
+                        <div class="book-page left-page">
+                            <div>
+                                <span class="page-head-label">Chamber Category V</span>
+                                <h2 style="font-family:var(--font-title); font-size:1.5rem; color:var(--gold-light); margin-bottom:12px;">Sunset Glow Master Suite</h2>
+                                <div class="shape-arch" style="height:240px; margin-bottom:15px;">
+                                    <div class="img-wrapper" onclick="openLightbox(4)">
+                                        <img src="images/img_05.jpg" alt="Sunset Glow Master Suite">
+                                    </div>
+                                </div>
+                                <p style="font-size:0.82rem; color:var(--text-muted);">Golden-hour warmth, premium cotton linens and hand-crafted wooden consoles for a serene mountain retreat.</p>
+                            </div>
+                            <div class="page-number"><span>SUNSET SUITES</span><span>08</span></div>
+                        </div>
+                        <div class="book-page right-page">
+                            <div>
+                                <span class="page-head-label">Chamber Category VI</span>
+                                <h2 style="font-family:var(--font-title); font-size:1.5rem; color:var(--gold-light); margin-bottom:12px;">VIP Forest Villa Bedroom</h2>
+                                <div class="shape-gold-frame" style="height:240px; margin-bottom:15px;">
+                                    <div class="img-wrapper" onclick="openLightbox(5)">
+                                        <img src="images/img_06.jpg" alt="VIP Forest Villa Bedroom">
+                                    </div>
+                                </div>
+                                <p style="font-size:0.82rem; color:var(--text-muted);">Serene forest-facing villa room with plush king bedding, warm carpet flooring and ambient lighting.</p>
+                            </div>
+                            <div class="page-number"><span>FOREST VILLAS</span><span>09</span></div>
+                        </div>
+                    </div>
+
+                    <!-- SPREAD 6: GARDEN & KARAKORAM CHAMBERS -->
+                    <div class="book-spread" id="spread-6">
+                        <div class="book-page left-page">
+                            <div>
+                                <span class="page-head-label">Chamber Category VII</span>
+                                <h2 style="font-family:var(--font-title); font-size:1.5rem; color:var(--gold-light); margin-bottom:12px;">Lush Garden Vista Suite</h2>
+                                <div class="shape-hexagon" style="height:240px; margin-bottom:15px;">
+                                    <div class="img-wrapper" onclick="openLightbox(6)">
+                                        <img src="images/img_07.jpg" alt="Lush Garden Vista Suite">
+                                    </div>
+                                </div>
+                                <p style="font-size:0.82rem; color:var(--text-muted);">Garden-facing suite bathed in warm morning light with custom wooden bedside consoles.</p>
+                            </div>
+                            <div class="page-number"><span>GARDEN SUITES</span><span>10</span></div>
+                        </div>
+                        <div class="book-page right-page">
+                            <div>
+                                <span class="page-head-label">Chamber Category VIII</span>
+                                <h2 style="font-family:var(--font-title); font-size:1.5rem; color:var(--gold-light); margin-bottom:12px;">Karakoram Luxury Chamber</h2>
+                                <div class="shape-asymmetric" style="height:240px; margin-bottom:15px;">
+                                    <div class="img-wrapper" onclick="openLightbox(7)">
+                                        <img src="images/img_08.jpg" alt="Karakoram Luxury Chamber">
+                                    </div>
+                                </div>
+                                <p style="font-size:0.82rem; color:var(--text-muted);">Rich wood textures and luxury linens facing the legendary Karakoram peaks.</p>
+                            </div>
+                            <div class="page-number"><span>KARAKORAM CHAMBERS</span><span>11</span></div>
+                        </div>
+                    </div>
+
+                    <!-- SPREAD 7: HONEY OAK & VALLEY VIEW ROOMS -->
+                    <div class="book-spread" id="spread-7">
+                        <div class="book-page left-page">
+                            <div>
+                                <span class="page-head-label">Chamber Category IX</span>
+                                <h2 style="font-family:var(--font-title); font-size:1.5rem; color:var(--gold-light); margin-bottom:12px;">Honey Oak Master Room</h2>
+                                <div class="shape-arch" style="height:240px; margin-bottom:15px;">
+                                    <div class="img-wrapper" onclick="openLightbox(8)">
+                                        <img src="images/img_09.jpg" alt="Honey Oak Master Room">
+                                    </div>
+                                </div>
+                                <p style="font-size:0.82rem; color:var(--text-muted);">Classic alpine retreat finished in warm honey-oak tones with plush premium bedding.</p>
+                            </div>
+                            <div class="page-number"><span>OAK ROOMS</span><span>12</span></div>
+                        </div>
+                        <div class="book-page right-page">
+                            <div>
+                                <span class="page-head-label">Chamber Category X</span>
+                                <h2 style="font-family:var(--font-title); font-size:1.5rem; color:var(--gold-light); margin-bottom:12px;">Valley View Deluxe Room</h2>
+                                <div class="shape-gold-frame" style="height:240px; margin-bottom:15px;">
+                                    <div class="img-wrapper" onclick="openLightbox(9)">
+                                        <img src="images/img_16.jpg" alt="Valley View Deluxe Room">
+                                    </div>
+                                </div>
+                                <p style="font-size:0.82rem; color:var(--text-muted);">Panoramic valley outlook with blackout drapes and a cosy reading corner by the window.</p>
+                            </div>
+                            <div class="page-number"><span>VALLEY VIEW</span><span>13</span></div>
+                        </div>
+                    </div>
+
+                    <!-- SPREAD 8: SIGNATURE SUITE GALLERY -->
+                    <div class="book-spread" id="spread-8">
+                        <div class="book-page left-page">
+                            <div>
+                                <span class="page-head-label">Gallery I</span>
+                                <h2 style="font-family:var(--font-title); font-size:1.3rem; color:var(--gold-light); margin-bottom:8px;">Signature Chamber Gallery</h2>
+                                <div class="book-mini-grid">
+                                    <div class="book-mini-item" onclick="openLightbox(10)"><img src="images/img_22.jpg" alt="Cascade Villa Bedroom"><span class="mini-label">Cascade Villa</span></div>
+                                    <div class="book-mini-item" onclick="openLightbox(11)"><img src="images/img_24.jpg" alt="Grand Heritage Bedroom"><span class="mini-label">Grand Heritage</span></div>
+                                    <div class="book-mini-item" onclick="openLightbox(12)"><img src="images/img_25.jpg" alt="Cedar Wood Master Room"><span class="mini-label">Cedar Wood Master</span></div>
+                                    <div class="book-mini-item" onclick="openLightbox(13)"><img src="images/img_26.jpg" alt="Golden Oak Suite"><span class="mini-label">Golden Oak Suite</span></div>
+                                </div>
+                            </div>
+                            <div class="page-number"><span>SIGNATURE GALLERY</span><span>14</span></div>
+                        </div>
+                        <div class="book-page right-page">
+                            <div>
+                                <span class="page-head-label">Gallery II</span>
+                                <h2 style="font-family:var(--font-title); font-size:1.3rem; color:var(--gold-light); margin-bottom:8px;">Crown & Serenity Suites</h2>
+                                <div class="book-mini-grid">
+                                    <div class="book-mini-item" onclick="openLightbox(14)"><img src="images/img_30.jpg" alt="Imperial Suite Vista"><span class="mini-label">Imperial Suite</span></div>
+                                    <div class="book-mini-item" onclick="openLightbox(15)"><img src="images/img_41.jpg" alt="Serenity Master Suite"><span class="mini-label">Serenity Master</span></div>
+                                    <div class="book-mini-item" onclick="openLightbox(16)"><img src="images/img_43.jpg" alt="Celestial Deluxe Suite"><span class="mini-label">Celestial Deluxe</span></div>
+                                    <div class="book-mini-item" onclick="openLightbox(17)"><img src="images/img_44.jpg" alt="Skardu Pinnacle Suite"><span class="mini-label">Skardu Pinnacle</span></div>
+                                </div>
+                                <p style="font-size:0.8rem; color:var(--text-muted); margin-top:10px;">Every suite is crafted for family comfort — click any photo for features & specs.</p>
+                            </div>
+                            <div class="page-number"><span>CROWN SUITES</span><span>15</span></div>
+                        </div>
+                    </div>
+
+                    <!-- SPREAD 9: RIVER & ORCHARD VIEWS -->
+                    <div class="book-spread" id="spread-9">
+                        <div class="book-page left-page">
+                            <div>
+                                <span class="page-head-label">Gallery III</span>
+                                <h2 style="font-family:var(--font-title); font-size:1.3rem; color:var(--gold-light); margin-bottom:8px;">River & Valley Views</h2>
+                                <div class="book-mini-grid">
+                                    <div class="book-mini-item" onclick="openLightbox(18)"><img src="images/img_10.jpg" alt="Skyline River View"><span class="mini-label">Skyline River View</span></div>
+                                    <div class="book-mini-item" onclick="openLightbox(19)"><img src="images/img_12.jpg" alt="Orchard & Mountain View"><span class="mini-label">Orchard & Mountain</span></div>
+                                    <div class="book-mini-item" onclick="openLightbox(20)"><img src="images/img_14.jpg" alt="River & Valley Panorama"><span class="mini-label">River & Valley</span></div>
+                                    <div class="book-mini-item" onclick="openLightbox(21)"><img src="images/img_29.jpg" alt="Garden Courtyard Vista"><span class="mini-label">Garden Courtyard</span></div>
+                                </div>
+                            </div>
+                            <div class="page-number"><span>RIVER & VALLEY VIEWS</span><span>16</span></div>
+                        </div>
+                        <div class="book-page right-page">
+                            <div>
+                                <span class="page-head-label">Gallery IV</span>
+                                <h2 style="font-family:var(--font-title); font-size:1.3rem; color:var(--gold-light); margin-bottom:8px;">Orchard & Garden Grounds</h2>
+                                <div class="book-mini-grid">
+                                    <div class="book-mini-item" onclick="openLightbox(22)"><img src="images/img_32.jpg" alt="Shyok River Orchard View"><span class="mini-label">Shyok Orchard</span></div>
+                                    <div class="book-mini-item" onclick="openLightbox(23)"><img src="images/img_33.jpg" alt="Cherry Orchard Lawns"><span class="mini-label">Cherry Orchard</span></div>
+                                    <div class="book-mini-item" onclick="openLightbox(24)"><img src="images/img_34.jpg" alt="Orchard Garden Vista"><span class="mini-label">Orchard Garden</span></div>
+                                    <div class="book-mini-item" onclick="openLightbox(25)"><img src="images/img_35.jpg" alt="Resort Garden Walkways"><span class="mini-label">Garden Walkways</span></div>
+                                </div>
+                                <p style="font-size:0.8rem; color:var(--text-muted); margin-top:10px;">Famous cherry and apricot tree lines, lush lawns and walking pathways around the resort.</p>
+                            </div>
+                            <div class="page-number"><span>ORCHARD GROUNDS</span><span>17</span></div>
+                        </div>
+                    </div>
+
+                    <!-- SPREAD 10: CHALET & MOUNTAIN EXTERIORS -->
+                    <div class="book-spread" id="spread-10">
+                        <div class="book-page left-page">
+                            <div>
+                                <span class="page-head-label">Resort Grounds</span>
+                                <h2 style="font-family:var(--font-title); font-size:1.5rem; color:var(--gold-light); margin-bottom:12px;">Orchard Chalet Grounds</h2>
+                                <div class="shape-arch" style="height:240px; margin-bottom:15px;">
+                                    <div class="img-wrapper" onclick="openLightbox(27)">
+                                        <img src="images/img_37.jpg" alt="Orchard Chalet Grounds">
+                                    </div>
+                                </div>
+                                <p style="font-size:0.82rem; color:var(--text-muted);">Timber chalets nestled among the famous cherry and apricot orchards of Ghawari.</p>
+                            </div>
+                            <div class="page-number"><span>CHALET GROUNDS</span><span>18</span></div>
+                        </div>
+                        <div class="book-page right-page">
+                            <div>
+                                <span class="page-head-label">Mountain Views</span>
+                                <h2 style="font-family:var(--font-title); font-size:1.5rem; color:var(--gold-light); margin-bottom:12px;">Sunset Mountain Landscape</h2>
+                                <div class="shape-gold-frame" style="height:240px; margin-bottom:15px;">
+                                    <div class="img-wrapper" onclick="openLightbox(28)">
+                                        <img src="images/img_39.jpg" alt="Sunset Mountain Landscape">
+                                    </div>
+                                </div>
+                                <p style="font-size:0.82rem; color:var(--text-muted);">Golden-hour panorama across the Karakoram ridgeline — a photographer's dream.</p>
+                            </div>
+                            <div class="page-number"><span>MOUNTAIN VIEWS</span><span>19</span></div>
+                        </div>
+                    </div>
+
+                    <!-- SPREAD 11: SIGNATURE FINALE & BOOKING -->
+                    <div class="book-spread" id="spread-11">
+                        <div class="book-page left-page">
+                            <div>
+                                <span class="page-head-label">Resort Architecture</span>
+                                <h2 style="font-family:var(--font-title); font-size:1.5rem; color:var(--gold-light); margin-bottom:12px;">Yellow Cottage Chalets</h2>
+                                <div class="shape-hexagon" style="height:240px; margin-bottom:15px;">
+                                    <div class="img-wrapper" onclick="openLightbox(26)">
+                                        <img src="images/img_36.jpg" alt="Yellow Cottage Chalets">
+                                    </div>
+                                </div>
+                                <p style="font-size:0.82rem; color:var(--text-muted);">Picturesque timber chalets framed against towering mountain peaks and green orchards.</p>
+                            </div>
+                            <div class="page-number"><span>YELLOW COTTAGES</span><span>20</span></div>
+                        </div>
+                        <div class="book-page right-page">
+                            <div>
+                                <span class="page-head-label">Your Stay Awaits</span>
+                                <h2 style="font-family:var(--font-title); font-size:1.6rem; color:var(--gold-light); margin-bottom:12px;">Book Your Experience</h2>
+                                <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:15px;">Complete your luxury journey at Cascade Resorts. Reserve your suite directly via WhatsApp or phone — our team is available 24/7 to craft your perfect Skardu escape.</p>
+                                <div style="display:flex; flex-direction:column; gap:10px; margin-top:10px;">
+                                    <a href="https://wa.me/923155554648" target="_blank" class="btn-gold-outline" style="justify-content:center; padding:12px;"><i class="fa-brands fa-whatsapp"></i> WhatsApp Reservation</a>
+                                    <a href="tel:03155554648" class="btn-gold-outline" style="justify-content:center; padding:12px;"><i class="fa-solid fa-phone"></i> 0315-5554648</a>
+                                    <a href="tel:03555554648" class="btn-gold-outline" style="justify-content:center; padding:12px;"><i class="fa-solid fa-mobile-screen"></i> 0355-5554648</a>
+                                </div>
+                                <p style="font-size:0.8rem; color:var(--gold-light); margin-top:15px; text-align:center; font-style:italic;">Ghawari, Ghanche District, Skardu, Gilgit-Baltistan</p>
+                            </div>
+                            <div class="page-number"><span>RESERVATIONS</span><span>21</span></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- CONTROLS -->
+            <div class="book-controls">
+                <button class="control-btn" onclick="prevSpread()" title="Previous Spread"><i class="fa-solid fa-chevron-left"></i></button>
+                <span class="page-indicator" id="page-num-display">Spread 1 / 7</span>
+                <button class="control-btn" onclick="nextSpread()" title="Next Spread"><i class="fa-solid fa-chevron-right"></i></button>
+                <div style="width:1px; height:20px; background:rgba(255,255,255,0.2);"></div>
+                <button class="control-btn" onclick="toggleAutoFlip()" id="autoflip-btn" title="Auto Turn Pages"><i class="fa-solid fa-play"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= VIEW 2: CONTINUOUS MAGAZINE ================= -->
+    <section id="scroll-view" class="view-section">
+        <!-- HERO BANNER -->
+        <div class="magazine-hero">
+            <img src="images/img_36.jpg" class="hero-bg" alt="Resort Hero">
+            <div class="hero-shade"></div>
+            <div class="hero-content">
+                <span class="hero-eyebrow">✦ &nbsp;Est. Ghawari • Skardu&nbsp; ✦</span>
+                <h2>CASCADE RESORTS</h2>
+                <p>An Unrivaled Haven of Elegance<br>in Skardu's Ghanche District</p>
+                <div class="hero-cta">
+                    <button class="btn-gold-outline gold-filled" onclick="switchView('gallery-view')"><i class="fa-solid fa-border-all"></i> Explore the Collection</button>
+                </div>
+            </div>
+            <div class="scroll-hint"><span></span></div>
+        </div>
+
+        <!-- FEATURED SUITES SECTION -->
+        <div class="magazine-section">
+            <div class="section-header">
+                <span class="eyebrow">Unmatched Luxury</span>
+                <h2>Royal &amp; Executive Suites</h2>
+                <div class="gold-divider">❖</div>
+            </div>
+
+            <div class="mag-grid-featured">
+                <div class="mag-card">
+                    <div class="card-img-holder shape-arch">
+                        <div class="img-wrapper" onclick="openLightbox(0)">
+                            <img src="images/img_01.jpg" alt="Royal King Master Suite">
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h3>Royal King Master Suite</h3>
+                        <p>Immerse yourself in hand-crafted wood paneling, indirect golden lighting, and plush king linens facing the mountains.</p>
+                        <button class="btn-gold-outline" onclick="openLightbox(0)"><i class="fa-solid fa-expand"></i> View Fullscreen</button>
+                    </div>
+                </div>
+
+                <div class="mag-card">
+                    <div class="card-img-holder shape-hexagon">
+                        <div class="img-wrapper" onclick="openLightbox(2)">
+                            <img src="images/img_03.jpg" alt="Executive Panorama Chamber">
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h3>Executive Panorama Chamber</h3>
+                        <p>Floor-to-ceiling double-glazed windows capturing the serene beauty of Shyok river and surrounding orchards.</p>
+                        <button class="btn-gold-outline" onclick="openLightbox(2)"><i class="fa-solid fa-expand"></i> View Fullscreen</button>
+                    </div>
+                </div>
+
+                <div class="mag-card">
+                    <div class="card-img-holder shape-gold-frame">
+                        <div class="img-wrapper" onclick="openLightbox(11)">
+                            <img src="images/img_24.jpg" alt="Grand Heritage Bedroom">
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h3>Grand Heritage Bedroom</h3>
+                        <p>Warm hand-crafted wood paneling, orthopedic king bedding and heritage-style bedside consoles.</p>
+                        <button class="btn-gold-outline" onclick="openLightbox(11)"><i class="fa-solid fa-expand"></i> View Fullscreen</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AMENITIES SECTION -->
+        <div class="magazine-section" style="background: rgba(18,18,18,0.5); border-top: 1px solid rgba(197,160,89,0.2); border-bottom: 1px solid rgba(197,160,89,0.2);">
+            <div class="section-header">
+                <span class="eyebrow">World-Class Experience</span>
+                <h2>Resort Amenities &amp; Services</h2>
+                <div class="gold-divider">❖</div>
+            </div>
+
+                <div class="amenity-card"><div class="amenity-icon"><i class="fa-solid fa-hotel"></i></div><h4>Luxury Cottages</h4></div>
+                <div class="amenity-card"><div class="amenity-icon"><i class="fa-solid fa-utensils"></i></div><h4>Riverbank Dining</h4></div>
+                <div class="amenity-card"><div class="amenity-icon"><i class="fa-solid fa-tree"></i></div><h4>600 Kanal Orchards</h4></div>
+                <div class="amenity-card"><div class="amenity-icon"><i class="fa-solid fa-fire"></i></div><h4>Private Bonfire Pits</h4></div>
+                <div class="amenity-card"><div class="amenity-icon"><i class="fa-solid fa-wifi"></i></div><h4>24/7 High-Speed WiFi</h4></div>
+                <div class="amenity-card"><div class="amenity-icon"><i class="fa-solid fa-bolt"></i></div><h4>Uninterrupted Power</h4></div>
+                <div class="amenity-card"><div class="amenity-icon"><i class="fa-solid fa-truck-monster"></i></div><h4>Jeep &amp; ATV Safaris</h4></div>
+                <div class="amenity-card"><div class="amenity-icon"><i class="fa-solid fa-water"></i></div><h4>Shyok River Rafting</h4></div>
+        </div>
+    </section>
+
+    <!-- ================= VIEW 3: FULL 44-IMAGE GALLERY INDEX ================= -->
+    <section id="gallery-view" class="view-section">
+        <div style="padding: 40px 5%; max-width: 1500px; margin: 0 auto;">
+            <div class="section-header">
+                <span class="eyebrow">Complete Portfolio</span>
+                <h2>29 Luxury Photos Gallery</h2>
+                <div class="gold-divider">❖</div>
+            </div>
+
+            <div class="gallery-controls">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" onclick="filterGallery('All', this)">All Photos (29)</button>
+                    <button class="filter-btn" onclick="filterGallery('Suites', this)">Suites & Bedrooms (18)</button>
+                    <button class="filter-btn" onclick="filterGallery('Exteriors', this)">Exteriors & Views (11)</button>
+                </div>
+
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="gallery-search" placeholder="Search room type, fixtures..." onkeyup="searchGallery()">
+                </div>
+            </div>
+
+            <div class="gallery-grid" id="main-gallery-grid">
+                <!-- JavaScript renders all 29 images here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= 4K LIGHTBOX MODAL ================= -->
+    <div class="lightbox-modal" id="lightbox-modal">
+        <div class="lightbox-content">
+            <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+            <button class="lightbox-nav lightbox-prev" onclick="navigateLightbox(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="lightbox-nav lightbox-next" onclick="navigateLightbox(1)"><i class="fa-solid fa-chevron-right"></i></button>
+
+            <div class="lightbox-img-wrapper">
+                <img id="lightbox-img" src="" alt="High-Res View">
+            </div>
+
+            <div class="lightbox-details">
+                <h3 id="lightbox-title">Image Title</h3>
+                <p id="lightbox-desc">Description details...</p>
+                <div class="lightbox-features" id="lightbox-features"></div>
+                <div class="lightbox-specs specs-grid" id="lightbox-specs"></div>
+                <span id="lightbox-counter" style="font-size:0.75rem; color:var(--gold-primary); margin-top:5px; display:inline-block;">Image 1 of 44</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+        <div class="footer-logo">CASCADE RESORTS</div>
+        <p style="font-style:italic; color:var(--gold-light);">Ghawari, Ghanche District, Skardu, Gilgit-Baltistan</p>
+
+        <div class="footer-contacts">
+            <a href="tel:03155554648"><i class="fa-solid fa-phone"></i> 0315-5554648</a>
+            <a href="tel:03555554648"><i class="fa-solid fa-mobile-screen"></i> 0355-5554648</a>
+            <a href="https://wa.me/923155554648" target="_blank"><i class="fa-brands fa-whatsapp"></i> Direct WhatsApp</a>
+        </div>
+
+        <p style="font-size:0.8rem; color:var(--text-muted); margin-top:20px;">© 2026 Cascade Resorts Skardu. All Rights Reserved. Custom Luxury Catalogue.</p>
+    </footer>
+
+    <!-- ================= JAVASCRIPT LOGIC ================= -->
+    <script>
+                        const galleryData = [[1, "Royal King Master Suite", "Suites", "Royal King Master Suite — a luxury mountain retreat at Cascade Resorts Skardu. Warm wooden craftsmanship, plush premium bedding and serene views of the Karakoram orchards make this chamber a haven of quiet elegance.", ["Orthopedic king-size mattress", "Warm ambient lighting", "Premium cotton linens", "Custom bedside consoles"], {"Guests": "2 Adults", "Bed": "King Size", "View": "Mountain & Orchard", "Area": "450 sq ft", "Extras": "Breakfast Included"}, "shape-arch"],[2, "Deluxe Mountain-View Suite", "Suites", "Deluxe Mountain-View Suite — a luxury mountain retreat at Cascade Resorts Skardu. Warm wooden craftsmanship, plush premium bedding and serene views of the Karakoram orchards make this chamber a haven of quiet elegance.", ["Warm ambient lighting", "Premium cotton linens", "Custom bedside consoles", "Mountain-facing layout"], {"Guests": "2 Adults", "Bed": "King Size", "View": "Mountain & Orchard", "Area": "450 sq ft", "Extras": "Breakfast Included"}, "shape-gold-frame"],[3, "Executive Panorama Chamber", "Suites", "Executive Panorama Chamber — a luxury mountain retreat at Cascade Resorts Skardu. Warm wooden craftsmanship, plush premium bedding and serene views of the Karakoram orchards make this chamber a haven of quiet elegance.", ["Premium cotton linens", "Custom bedside consoles", "Mountain-facing layout", "Blackout thermal curtains"], {"Guests": "2 Adults", "Bed": "King Size", "View": "Mountain & Orchard", "Area": "450 sq ft", "Extras": "Breakfast Included"}, "shape-hexagon"],[4, "Presidential Heritage Bedroom", "Suites", "Presidential Heritage Bedroom — a luxury mountain retreat at Cascade Resorts Skardu. Warm wooden craftsmanship, plush premium bedding and serene views of the Karakoram orchards make this chamber a haven of quiet elegance.", ["Custom bedside consoles", "Mountain-facing layout", "Blackout thermal curtains", "Luxury carpet flooring"], {"Guests": "2 Adults", "Bed": "King Size", "View": "Mountain & Orchard", "Area": "450 sq ft", "Extras": "Breakfast Included"}, "shape-asymmetric"],[5, "Sunset Glow Master Suite", "Suites", "Sunset Glow Master Suite — a luxury mountain retreat at Cascade Resorts Skardu. Warm wooden craftsmanship, plush premium bedding and serene views of the Karakoram orchards make this chamber a haven of quiet elegance.", ["Mountain-facing layout", "Blackout thermal curtains", "Luxury carpet flooring", "Blackout drapes"], {"Guests": "2 Adults", "Bed": "King Size", "View": "Mountain & Orchard", "Area": "450 sq ft", "Extras": "Breakfast Included"}, "shape-arch"],[6, "VIP Forest Villa Bedroom", "Suites", "VIP Forest Villa Bedroom — a luxury mountain retreat at Cascade Resorts Skardu. Warm wooden craftsmanship, plush premium bedding and serene views of the Karakoram orchards make this chamber a haven of quiet elegance.", ["Blackout thermal curtains", "Luxury carpet flooring", "Blackout drapes", "Plush decorative cushions"], {"Guests": "2 Adults", "Bed": "King Size", "View": "Mountain & Orchard", "Area": "450 sq ft", "Extras": "Breakfast Included"}, "shape-gold-frame"],[7, "Lush Garden Vista Suite", "Suites", "Lush Garden Vista Suite — a luxury mountain retreat at Cascade Resorts Skardu. Warm wooden craftsmanship, plush premium bedding and serene views of the Karakoram orchards make this chamber a haven of quiet elegance.", ["Luxury carpet flooring", "Blackout drapes", "Plush decorative cushions", "Reading lamps"], {"Guests": "2 Adults", "Bed": "King Size", "View": "Mountain & Orchard", "Area": "450 sq ft", "Extras": "Breakfast Included"}, "shape-hexagon"],[8, "Karakoram Luxury Chamber", "Suites", "Karakoram Luxury Chamber — a luxury mountain retreat at Cascade Resorts Skardu. Warm wooden craftsmanship, plush premium bedding and serene views of the Karakoram orchards make this chamber a haven of quiet elegance.", ["Blackout drapes", "Plush decorative cushions", "Reading lamps", "Double-glazed windows"], {"Guests": "2 Adults", "Bed": "King Size", "View": "Mountain & Orchard", "Area": "450 sq ft", "Extras": "Breakfast Included"}, "shape-asymmetric"],[9, "Honey Oak Master Room", "Suites", "Honey Oak Master Room — a luxury mountain retreat at Cascade Resorts Skardu. Warm wooden craftsmanship, plush premium bedding and serene views of the Karakoram orchards make this chamber a haven of quiet elegance.", ["Plush decorative cushions", "Reading lamps", "Double-glazed windows", "Hand-crafted wood paneling"], {"Guests": "2 Adults", "Bed": "King Size", "View": "Mountain & Orchard", "Area": "450 sq ft", "Extras": "Breakfast Included"}, "shape-arch"],[16, "Valley View Deluxe Room", "Suites", "Valley View Deluxe Room — a luxury mountain retreat at Cascade Resorts Skardu. Warm wooden craftsmanship, plush premium bedding and serene views of the Karakoram orchards make this chamber a haven of quiet elegance.", ["Custom bedside consoles", "Mountain-facing layout", "Blackout thermal curtains", "Luxury carpet flooring"], {"Guests": "2 Adults", "Bed": "King Size", "View": "Mountain & Orchard", "Area": "450 sq ft", "Extras": "Breakfast Included"}, "shape-asymmetric"],[22, "Cascade Villa Bedroom", "Suites", "Cascade Villa Bedroom — a luxury mountain retreat at Cascade Resorts Skardu. Warm wooden craftsmanship, plush premium bedding and serene views of the Karakoram orchards make this chamber a haven of quiet elegance.", ["Reading lamps", "Double-glazed windows", "Hand-crafted wood paneling", "Orthopedic king-size mattress"], {"Guests": "2 Adults", "Bed": "King Size", "View": "Mountain & Orchard", "Area": "450 sq ft", "Extras": "Breakfast Included"}, "shape-gold-frame"],[24, "Grand Heritage Bedroom", "Suites", "Grand Heritage Bedroom — a luxury mountain retreat at Cascade Resorts Skardu. Warm wooden craftsmanship, plush premium bedding and serene views of the Karakoram orchards make this chamber a haven of quiet elegance.", ["Hand-crafted wood paneling", "Orthopedic king-size mattress", "Warm ambient lighting", "Premium cotton linens"], {"Guests": "2 Adults", "Bed": "King Size", "View": "Mountain & Orchard", "Area": "450 sq ft", "Extras": "Breakfast Included"}, "shape-asymmetric"],[25, "Cedar Wood Master Room", "Suites", "Cedar Wood Master Room — a luxury mountain retreat at Cascade Resorts Skardu. Warm wooden craftsmanship, plush premium bedding and serene views of the Karakoram orchards make this chamber a haven of quiet elegance.", ["Orthopedic king-size mattress", "Warm ambient lighting", "Premium cotton linens", "Custom bedside consoles"], {"Guests": "2 Adults", "Bed": "King Size", "View": "Mountain & Orchard", "Area": "450 sq ft", "Extras": "Breakfast Included"}, "shape-arch"],[26, "Golden Oak Suite", "Suites", "Golden Oak Suite — a luxury mountain retreat at Cascade Resorts Skardu. Warm wooden craftsmanship, plush premium bedding and serene views of the Karakoram orchards make this chamber a haven of quiet elegance.", ["Warm ambient lighting", "Premium cotton linens", "Custom bedside consoles", "Mountain-facing layout"], {"Guests": "2 Adults", "Bed": "King Size", "View": "Mountain & Orchard", "Area": "450 sq ft", "Extras": "Breakfast Included"}, "shape-gold-frame"],[30, "Imperial Suite Vista", "Suites", "Imperial Suite Vista — a luxury mountain retreat at Cascade Resorts Skardu. Warm wooden craftsmanship, plush premium bedding and serene views of the Karakoram orchards make this chamber a haven of quiet elegance.", ["Blackout thermal curtains", "Luxury carpet flooring", "Blackout drapes", "Plush decorative cushions"], {"Guests": "2 Adults", "Bed": "King Size", "View": "Mountain & Orchard", "Area": "450 sq ft", "Extras": "Breakfast Included"}, "shape-gold-frame"],[41, "Serenity Master Suite", "Suites", "Serenity Master Suite — a luxury mountain retreat at Cascade Resorts Skardu. Warm wooden craftsmanship, plush premium bedding and serene views of the Karakoram orchards make this chamber a haven of quiet elegance.", ["Mountain-facing layout", "Blackout thermal curtains", "Luxury carpet flooring", "Blackout drapes"], {"Guests": "2 Adults", "Bed": "King Size", "View": "Mountain & Orchard", "Area": "450 sq ft", "Extras": "Breakfast Included"}, "shape-arch"],[43, "Celestial Deluxe Suite", "Suites", "Celestial Deluxe Suite — a luxury mountain retreat at Cascade Resorts Skardu. Warm wooden craftsmanship, plush premium bedding and serene views of the Karakoram orchards make this chamber a haven of quiet elegance.", ["Luxury carpet flooring", "Blackout drapes", "Plush decorative cushions", "Reading lamps"], {"Guests": "2 Adults", "Bed": "King Size", "View": "Mountain & Orchard", "Area": "450 sq ft", "Extras": "Breakfast Included"}, "shape-hexagon"],[44, "Skardu Pinnacle Suite", "Suites", "Skardu Pinnacle Suite — a luxury mountain retreat at Cascade Resorts Skardu. Warm wooden craftsmanship, plush premium bedding and serene views of the Karakoram orchards make this chamber a haven of quiet elegance.", ["Blackout drapes", "Plush decorative cushions", "Reading lamps", "Double-glazed windows"], {"Guests": "2 Adults", "Bed": "King Size", "View": "Mountain & Orchard", "Area": "450 sq ft", "Extras": "Breakfast Included"}, "shape-asymmetric"],[10, "Skyline River View", "Exteriors", "Skyline River View — breathtaking open-air scenery around Cascade Resorts: towering Karakoram peaks, lush cherry & apricot orchards and the serene Shyok river valley.", ["Walking pathways", "Natural sunlight", "Open mountain sky", "Lush orchards & trees"], {"Setting": "Outdoor Nature", "View": "Karakoram Peaks", "Air": "Fresh Alpine", "Photography": "Excellent", "Season": "Year Round"}, "shape-gold-frame"],[12, "Orchard & Mountain View", "Exteriors", "Orchard & Mountain View — breathtaking open-air scenery around Cascade Resorts: towering Karakoram peaks, lush cherry & apricot orchards and the serene Shyok river valley.", ["Open mountain sky", "Lush orchards & trees", "Fresh alpine air", "Scenic photography spots"], {"Setting": "Outdoor Nature", "View": "Karakoram Peaks", "Air": "Fresh Alpine", "Photography": "Excellent", "Season": "Year Round"}, "shape-asymmetric"],[14, "River & Valley Panorama", "Exteriors", "River & Valley Panorama — breathtaking open-air scenery around Cascade Resorts: towering Karakoram peaks, lush cherry & apricot orchards and the serene Shyok river valley.", ["Fresh alpine air", "Scenic photography spots", "Walking pathways", "Natural sunlight"], {"Setting": "Outdoor Nature", "View": "Karakoram Peaks", "Air": "Fresh Alpine", "Photography": "Excellent", "Season": "Year Round"}, "shape-gold-frame"],[29, "Garden Courtyard Vista", "Exteriors", "Garden Courtyard Vista — breathtaking open-air scenery around Cascade Resorts: towering Karakoram peaks, lush cherry & apricot orchards and the serene Shyok river valley.", ["Natural sunlight", "Open mountain sky", "Lush orchards & trees", "Fresh alpine air"], {"Setting": "Outdoor Nature", "View": "Karakoram Peaks", "Air": "Fresh Alpine", "Photography": "Excellent", "Season": "Year Round"}, "shape-arch"],[32, "Shyok River Orchard View", "Exteriors", "Shyok River Orchard View — breathtaking open-air scenery around Cascade Resorts: towering Karakoram peaks, lush cherry & apricot orchards and the serene Shyok river valley.", ["Fresh alpine air", "Scenic photography spots", "Walking pathways", "Natural sunlight"], {"Setting": "Outdoor Nature", "View": "Karakoram Peaks", "Air": "Fresh Alpine", "Photography": "Excellent", "Season": "Year Round"}, "shape-asymmetric"],[33, "Cherry Orchard Lawns", "Exteriors", "Cherry Orchard Lawns — breathtaking open-air scenery around Cascade Resorts: towering Karakoram peaks, lush cherry & apricot orchards and the serene Shyok river valley.", ["Scenic photography spots", "Walking pathways", "Natural sunlight", "Open mountain sky"], {"Setting": "Outdoor Nature", "View": "Karakoram Peaks", "Air": "Fresh Alpine", "Photography": "Excellent", "Season": "Year Round"}, "shape-arch"],[34, "Orchard Garden Vista", "Exteriors", "Orchard Garden Vista — breathtaking open-air scenery around Cascade Resorts: towering Karakoram peaks, lush cherry & apricot orchards and the serene Shyok river valley.", ["Walking pathways", "Natural sunlight", "Open mountain sky", "Lush orchards & trees"], {"Setting": "Outdoor Nature", "View": "Karakoram Peaks", "Air": "Fresh Alpine", "Photography": "Excellent", "Season": "Year Round"}, "shape-gold-frame"],[35, "Resort Garden Walkways", "Exteriors", "Resort Garden Walkways — breathtaking open-air scenery around Cascade Resorts: towering Karakoram peaks, lush cherry & apricot orchards and the serene Shyok river valley.", ["Natural sunlight", "Open mountain sky", "Lush orchards & trees", "Fresh alpine air"], {"Setting": "Outdoor Nature", "View": "Karakoram Peaks", "Air": "Fresh Alpine", "Photography": "Excellent", "Season": "Year Round"}, "shape-hexagon"],[36, "Yellow Cottage Resort View", "Exteriors", "Yellow Cottage Resort View — breathtaking open-air scenery around Cascade Resorts: towering Karakoram peaks, lush cherry & apricot orchards and the serene Shyok river valley.", ["Open mountain sky", "Lush orchards & trees", "Fresh alpine air", "Scenic photography spots"], {"Setting": "Outdoor Nature", "View": "Karakoram Peaks", "Air": "Fresh Alpine", "Photography": "Excellent", "Season": "Year Round"}, "shape-asymmetric"],[37, "Orchard Chalet Grounds", "Exteriors", "Orchard Chalet Grounds — breathtaking open-air scenery around Cascade Resorts: towering Karakoram peaks, lush cherry & apricot orchards and the serene Shyok river valley.", ["Lush orchards & trees", "Fresh alpine air", "Scenic photography spots", "Walking pathways"], {"Setting": "Outdoor Nature", "View": "Karakoram Peaks", "Air": "Fresh Alpine", "Photography": "Excellent", "Season": "Year Round"}, "shape-arch"],[39, "Sunset Mountain Landscape", "Exteriors", "Sunset Mountain Landscape — breathtaking open-air scenery around Cascade Resorts: towering Karakoram peaks, lush cherry & apricot orchards and the serene Shyok river valley.", ["Scenic photography spots", "Walking pathways", "Natural sunlight", "Open mountain sky"], {"Setting": "Outdoor Nature", "View": "Karakoram Peaks", "Air": "Fresh Alpine", "Photography": "Excellent", "Season": "Year Round"}, "shape-hexagon"]];
+
+        let currentLightboxIndex = 0;
+        let soundEnabled = true;
+        let currentSpread = 1;
+        const totalSpreads = 11;
+        let autoFlipInterval = null;
+
+        function playPageTurnSound() {
+            if (!soundEnabled) return;
+            try {
+                const AudioCtx = window.AudioContext || window.webkitAudioContext;
+                if (!AudioCtx) return;
+                const ctx = new AudioCtx();
+                const bufferSize = ctx.sampleRate * 0.15;
+                const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+                const data = buffer.getChannelData(0);
+
+                for (let i = 0; i < bufferSize; i++) {
+                    data[i] = (Math.random() * 2 - 1) * Math.exp(-i / (bufferSize * 0.3));
+                }
+
+                const noise = ctx.createBufferSource();
+                noise.buffer = buffer;
+
+                const filter = ctx.createBiquadFilter();
+                filter.type = 'lowpass';
+                filter.frequency.setValueAtTime(800, ctx.currentTime);
+                filter.frequency.exponentialRampToValueAtTime(100, ctx.currentTime + 0.15);
+
+                const gain = ctx.createGain();
+                gain.gain.setValueAtTime(0.3, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.15);
+
+                noise.connect(filter);
+                filter.connect(gain);
+                gain.connect(ctx.destination);
+
+                noise.start();
+            } catch (e) {
+                console.log('Audio error');
+            }
+        }
+
+        function toggleSound() {
+            soundEnabled = !soundEnabled;
+            const btn = document.getElementById('sound-toggle');
+            btn.innerHTML = soundEnabled ? '<i class="fa-solid fa-volume-high"></i>' : '<i class="fa-solid fa-volume-xmark"></i>';
+        }
+
+        function switchView(viewId) {
+            document.querySelectorAll('.view-section').forEach(sec => sec.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById(viewId).classList.add('active');
+            if (event && event.currentTarget) event.currentTarget.classList.add('active');
+
+            if (viewId === 'gallery-view') {
+                renderMainGallery('All');
+            }
+        }
+
+        function renderMainGallery(filterCategory = 'All', searchQuery = '') {
+            const grid = document.getElementById('main-gallery-grid');
+            if (!grid) return;
+            grid.innerHTML = '';
+
+            galleryData.forEach((item, idx) => {
+                const [id, title, category, desc, features, specs] = item;
+                const imgPath = `images/img_${id < 10 ? '0' + id : id}.jpg`;
+
+                if (filterCategory !== 'All' && category !== filterCategory) return;
+                if (searchQuery && !title.toLowerCase().includes(searchQuery) && !desc.toLowerCase().includes(searchQuery)) return;
+
+                const featureHtml = features.map(f => `<span class="feature-chip"><i class="fa-solid fa-check"></i>${f}</span>`).join('');
+                const specHtml = Object.entries(specs).map(([k, v]) => `<div class="spec-box"><span class="spec-key">${k}</span><span class="spec-val">${v}</span></div>`).join('');
+
+                const shapeCycle = ['shape-arch', 'shape-gold-frame', 'shape-hexagon', 'shape-asymmetric', 'shape-leaf', 'shape-oval'];
+                const shapeClass = shapeCycle[idx % 6];
+
+                const itemEl = document.createElement('div');
+                itemEl.className = 'gallery-item';
+                itemEl.innerHTML = `
+                    <div class="shape-container ${shapeClass}">
+                        <div class="img-wrapper" onclick="openLightbox(${idx})">
+                            <img src="${imgPath}" alt="${title}" loading="lazy">
+                            <span class="gallery-num">#${id}</span>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <div class="info-title">
+                            <h4>${title}</h4>
+                            <span class="meta-tag">${category}</span>
+                        </div>
+                        <p class="info-desc">${desc.slice(0, 110)}...</p>
+                        <div class="specs-grid">${specHtml}</div>
+                        <div class="gallery-foot">
+                            <div class="feature-chips">${featureHtml}</div>
+                            <button class="btn-gold-outline view-details-btn" onclick="openLightbox(${idx})"><i class="fa-solid fa-expand"></i> Details</button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(itemEl);
+            });
+        }
+
+        function filterGallery(category, btnEl) {
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            if (btnEl) btnEl.classList.add('active');
+            const searchVal = document.getElementById('gallery-search').value.toLowerCase();
+            renderMainGallery(category, searchVal);
+        }
+
+        function searchGallery() {
+            const searchVal = document.getElementById('gallery-search').value.toLowerCase();
+            const activeCategoryBtn = document.querySelector('.filter-btn.active');
+            const categoryText = activeCategoryBtn ? activeCategoryBtn.textContent : 'All';
+            let cat = 'All';
+            if (categoryText.includes('Suites')) cat = 'Suites';
+            if (categoryText.includes('Bathrooms')) cat = 'Bathrooms';
+            if (categoryText.includes('Lounges')) cat = 'Lounges';
+            if (categoryText.includes('Exteriors')) cat = 'Exteriors';
+
+            renderMainGallery(cat, searchVal);
+        }
+
+        function openLightbox(index) {
+            currentLightboxIndex = index;
+            updateLightboxContent();
+            document.getElementById('lightbox-modal').classList.add('active');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox-modal').classList.remove('active');
+        }
+
+        function navigateLightbox(direction) {
+            currentLightboxIndex += direction;
+            if (currentLightboxIndex < 0) currentLightboxIndex = galleryData.length - 1;
+            if (currentLightboxIndex >= galleryData.length) currentLightboxIndex = 0;
+            updateLightboxContent();
+            playPageTurnSound();
+        }
+
+        function updateLightboxContent() {
+            const item = galleryData[currentLightboxIndex];
+            const [id, title, category, desc, features, specs] = item;
+            const imgPath = `images/img_${id < 10 ? '0' + id : id}.jpg`;
+
+            const featureHtml = features.map(f => `<span class="feature-chip"><i class="fa-solid fa-check"></i>${f}</span>`).join('');
+            const specHtml = Object.entries(specs).map(([k, v]) => `<div class="spec-box"><span class="spec-key">${k}</span><span class="spec-val">${v}</span></div>`).join('');
+
+            document.getElementById('lightbox-img').src = imgPath;
+            document.getElementById('lightbox-title').textContent = `#${id} ${title}`;
+            document.getElementById('lightbox-desc').textContent = desc;
+            document.getElementById('lightbox-features').innerHTML = featureHtml;
+            document.getElementById('lightbox-specs').innerHTML = specHtml;
+            document.getElementById('lightbox-counter').textContent = `Image ${currentLightboxIndex + 1} of ${galleryData.length} • Category: ${category}`;
+        }
+
+        document.addEventListener('keydown', (e) => {
+            const modal = document.getElementById('lightbox-modal');
+            if (modal.classList.contains('active')) {
+                if (e.key === 'ArrowLeft') navigateLightbox(-1);
+                if (e.key === 'ArrowRight') navigateLightbox(1);
+                if (e.key === 'Escape') closeLightbox();
+            } else if (document.getElementById('book-view').classList.contains('active')) {
+                if (e.key === 'ArrowLeft') prevSpread();
+                if (e.key === 'ArrowRight') nextSpread();
+            }
+        });
+
+        function nextSpread() {
+            if (currentSpread < totalSpreads) {
+                currentSpread++;
+                playPageTurnSound();
+                updateSpreadDisplay();
+            }
+        }
+
+        function prevSpread() {
+            if (currentSpread > 1) {
+                currentSpread--;
+                playPageTurnSound();
+                updateSpreadDisplay();
+            }
+        }
+
+        function goToSpread(spreadNum) {
+            currentSpread = spreadNum;
+            playPageTurnSound();
+            updateSpreadDisplay();
+        }
+
+        function updateSpreadDisplay() {
+            document.querySelectorAll('.book-spread').forEach((sp, i) => {
+                if (i + 1 === currentSpread) sp.classList.add('active');
+                else sp.classList.remove('active');
+            });
+            document.getElementById('page-num-display').textContent = `Spread ${currentSpread} / ${totalSpreads}`;
+        }
+
+        function toggleAutoFlip() {
+            const btn = document.getElementById('autoflip-btn');
+            if (autoFlipInterval) {
+                clearInterval(autoFlipInterval);
+                autoFlipInterval = null;
+                btn.innerHTML = '<i class="fa-solid fa-play"></i>';
+            } else {
+                autoFlipInterval = setInterval(() => {
+                    if (currentSpread >= totalSpreads) currentSpread = 1;
+                    else currentSpread++;
+                    playPageTurnSound();
+                    updateSpreadDisplay();
+                }, 4000);
+                btn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+            }
+        }
+
+        function setupReveal() {
+            const els = document.querySelectorAll('.fade-up');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(en => {
+                    if (en.isIntersecting) {
+                        en.target.classList.add('revealed');
+                        observer.unobserve(en.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            els.forEach(el => observer.observe(el));
+        }
+
+        function decorateCards() {
+            document.querySelectorAll('.mag-card, .gallery-item, .amenity-card').forEach((el, i) => {
+                el.classList.add('fade-up');
+                el.style.transitionDelay = (i % 4) * 0.08 + 's';
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderMainGallery('All');
+            decorateCards();
+            setupReveal();
+
+            window.addEventListener('scroll', () => {
+                const nav = document.querySelector('.navbar');
+                if (nav) nav.classList.toggle('scrolled', window.scrollY > 30);
+            });
+        });
+    </script>
+</body>
+</html>
+"""
+with open("index.html", "w", encoding="utf-8") as out:
+    out.write(html)
+print("Successfully generated index.html")

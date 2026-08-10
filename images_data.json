@@ -1,0 +1,582 @@
+[
+ [
+  1,
+  "Royal King Master Suite",
+  "Suites",
+  "Royal King Master Suite — a luxury mountain retreat at Cascade Resorts Skardu. Warm wooden craftsmanship, plush premium bedding and serene views of the Karakoram orchards make this chamber a haven of quiet elegance.",
+  [
+   "Orthopedic king-size mattress",
+   "Warm ambient lighting",
+   "Premium cotton linens",
+   "Custom bedside consoles"
+  ],
+  {
+   "Guests": "2 Adults",
+   "Bed": "King Size",
+   "View": "Mountain & Orchard",
+   "Area": "450 sq ft",
+   "Extras": "Breakfast Included"
+  },
+  "shape-arch"
+ ],
+ [
+  2,
+  "Deluxe Mountain-View Suite",
+  "Suites",
+  "Deluxe Mountain-View Suite — a luxury mountain retreat at Cascade Resorts Skardu. Warm wooden craftsmanship, plush premium bedding and serene views of the Karakoram orchards make this chamber a haven of quiet elegance.",
+  [
+   "Warm ambient lighting",
+   "Premium cotton linens",
+   "Custom bedside consoles",
+   "Mountain-facing layout"
+  ],
+  {
+   "Guests": "2 Adults",
+   "Bed": "King Size",
+   "View": "Mountain & Orchard",
+   "Area": "450 sq ft",
+   "Extras": "Breakfast Included"
+  },
+  "shape-gold-frame"
+ ],
+ [
+  3,
+  "Executive Panorama Chamber",
+  "Suites",
+  "Executive Panorama Chamber — a luxury mountain retreat at Cascade Resorts Skardu. Warm wooden craftsmanship, plush premium bedding and serene views of the Karakoram orchards make this chamber a haven of quiet elegance.",
+  [
+   "Premium cotton linens",
+   "Custom bedside consoles",
+   "Mountain-facing layout",
+   "Blackout thermal curtains"
+  ],
+  {
+   "Guests": "2 Adults",
+   "Bed": "King Size",
+   "View": "Mountain & Orchard",
+   "Area": "450 sq ft",
+   "Extras": "Breakfast Included"
+  },
+  "shape-hexagon"
+ ],
+ [
+  4,
+  "Presidential Heritage Bedroom",
+  "Suites",
+  "Presidential Heritage Bedroom — a luxury mountain retreat at Cascade Resorts Skardu. Warm wooden craftsmanship, plush premium bedding and serene views of the Karakoram orchards make this chamber a haven of quiet elegance.",
+  [
+   "Custom bedside consoles",
+   "Mountain-facing layout",
+   "Blackout thermal curtains",
+   "Luxury carpet flooring"
+  ],
+  {
+   "Guests": "2 Adults",
+   "Bed": "King Size",
+   "View": "Mountain & Orchard",
+   "Area": "450 sq ft",
+   "Extras": "Breakfast Included"
+  },
+  "shape-asymmetric"
+ ],
+ [
+  5,
+  "Sunset Glow Master Suite",
+  "Suites",
+  "Sunset Glow Master Suite — a luxury mountain retreat at Cascade Resorts Skardu. Warm wooden craftsmanship, plush premium bedding and serene views of the Karakoram orchards make this chamber a haven of quiet elegance.",
+  [
+   "Mountain-facing layout",
+   "Blackout thermal curtains",
+   "Luxury carpet flooring",
+   "Blackout drapes"
+  ],
+  {
+   "Guests": "2 Adults",
+   "Bed": "King Size",
+   "View": "Mountain & Orchard",
+   "Area": "450 sq ft",
+   "Extras": "Breakfast Included"
+  },
+  "shape-arch"
+ ],
+ [
+  6,
+  "VIP Forest Villa Bedroom",
+  "Suites",
+  "VIP Forest Villa Bedroom — a luxury mountain retreat at Cascade Resorts Skardu. Warm wooden craftsmanship, plush premium bedding and serene views of the Karakoram orchards make this chamber a haven of quiet elegance.",
+  [
+   "Blackout thermal curtains",
+   "Luxury carpet flooring",
+   "Blackout drapes",
+   "Plush decorative cushions"
+  ],
+  {
+   "Guests": "2 Adults",
+   "Bed": "King Size",
+   "View": "Mountain & Orchard",
+   "Area": "450 sq ft",
+   "Extras": "Breakfast Included"
+  },
+  "shape-gold-frame"
+ ],
+ [
+  7,
+  "Lush Garden Vista Suite",
+  "Suites",
+  "Lush Garden Vista Suite — a luxury mountain retreat at Cascade Resorts Skardu. Warm wooden craftsmanship, plush premium bedding and serene views of the Karakoram orchards make this chamber a haven of quiet elegance.",
+  [
+   "Luxury carpet flooring",
+   "Blackout drapes",
+   "Plush decorative cushions",
+   "Reading lamps"
+  ],
+  {
+   "Guests": "2 Adults",
+   "Bed": "King Size",
+   "View": "Mountain & Orchard",
+   "Area": "450 sq ft",
+   "Extras": "Breakfast Included"
+  },
+  "shape-hexagon"
+ ],
+ [
+  8,
+  "Karakoram Luxury Chamber",
+  "Suites",
+  "Karakoram Luxury Chamber — a luxury mountain retreat at Cascade Resorts Skardu. Warm wooden craftsmanship, plush premium bedding and serene views of the Karakoram orchards make this chamber a haven of quiet elegance.",
+  [
+   "Blackout drapes",
+   "Plush decorative cushions",
+   "Reading lamps",
+   "Double-glazed windows"
+  ],
+  {
+   "Guests": "2 Adults",
+   "Bed": "King Size",
+   "View": "Mountain & Orchard",
+   "Area": "450 sq ft",
+   "Extras": "Breakfast Included"
+  },
+  "shape-asymmetric"
+ ],
+ [
+  9,
+  "Honey Oak Master Room",
+  "Suites",
+  "Honey Oak Master Room — a luxury mountain retreat at Cascade Resorts Skardu. Warm wooden craftsmanship, plush premium bedding and serene views of the Karakoram orchards make this chamber a haven of quiet elegance.",
+  [
+   "Plush decorative cushions",
+   "Reading lamps",
+   "Double-glazed windows",
+   "Hand-crafted wood paneling"
+  ],
+  {
+   "Guests": "2 Adults",
+   "Bed": "King Size",
+   "View": "Mountain & Orchard",
+   "Area": "450 sq ft",
+   "Extras": "Breakfast Included"
+  },
+  "shape-arch"
+ ],
+ [
+  16,
+  "Valley View Deluxe Room",
+  "Suites",
+  "Valley View Deluxe Room — a luxury mountain retreat at Cascade Resorts Skardu. Warm wooden craftsmanship, plush premium bedding and serene views of the Karakoram orchards make this chamber a haven of quiet elegance.",
+  [
+   "Custom bedside consoles",
+   "Mountain-facing layout",
+   "Blackout thermal curtains",
+   "Luxury carpet flooring"
+  ],
+  {
+   "Guests": "2 Adults",
+   "Bed": "King Size",
+   "View": "Mountain & Orchard",
+   "Area": "450 sq ft",
+   "Extras": "Breakfast Included"
+  },
+  "shape-asymmetric"
+ ],
+ [
+  22,
+  "Cascade Villa Bedroom",
+  "Suites",
+  "Cascade Villa Bedroom — a luxury mountain retreat at Cascade Resorts Skardu. Warm wooden craftsmanship, plush premium bedding and serene views of the Karakoram orchards make this chamber a haven of quiet elegance.",
+  [
+   "Reading lamps",
+   "Double-glazed windows",
+   "Hand-crafted wood paneling",
+   "Orthopedic king-size mattress"
+  ],
+  {
+   "Guests": "2 Adults",
+   "Bed": "King Size",
+   "View": "Mountain & Orchard",
+   "Area": "450 sq ft",
+   "Extras": "Breakfast Included"
+  },
+  "shape-gold-frame"
+ ],
+ [
+  24,
+  "Grand Heritage Bedroom",
+  "Suites",
+  "Grand Heritage Bedroom — a luxury mountain retreat at Cascade Resorts Skardu. Warm wooden craftsmanship, plush premium bedding and serene views of the Karakoram orchards make this chamber a haven of quiet elegance.",
+  [
+   "Hand-crafted wood paneling",
+   "Orthopedic king-size mattress",
+   "Warm ambient lighting",
+   "Premium cotton linens"
+  ],
+  {
+   "Guests": "2 Adults",
+   "Bed": "King Size",
+   "View": "Mountain & Orchard",
+   "Area": "450 sq ft",
+   "Extras": "Breakfast Included"
+  },
+  "shape-asymmetric"
+ ],
+ [
+  25,
+  "Cedar Wood Master Room",
+  "Suites",
+  "Cedar Wood Master Room — a luxury mountain retreat at Cascade Resorts Skardu. Warm wooden craftsmanship, plush premium bedding and serene views of the Karakoram orchards make this chamber a haven of quiet elegance.",
+  [
+   "Orthopedic king-size mattress",
+   "Warm ambient lighting",
+   "Premium cotton linens",
+   "Custom bedside consoles"
+  ],
+  {
+   "Guests": "2 Adults",
+   "Bed": "King Size",
+   "View": "Mountain & Orchard",
+   "Area": "450 sq ft",
+   "Extras": "Breakfast Included"
+  },
+  "shape-arch"
+ ],
+ [
+  26,
+  "Golden Oak Suite",
+  "Suites",
+  "Golden Oak Suite — a luxury mountain retreat at Cascade Resorts Skardu. Warm wooden craftsmanship, plush premium bedding and serene views of the Karakoram orchards make this chamber a haven of quiet elegance.",
+  [
+   "Warm ambient lighting",
+   "Premium cotton linens",
+   "Custom bedside consoles",
+   "Mountain-facing layout"
+  ],
+  {
+   "Guests": "2 Adults",
+   "Bed": "King Size",
+   "View": "Mountain & Orchard",
+   "Area": "450 sq ft",
+   "Extras": "Breakfast Included"
+  },
+  "shape-gold-frame"
+ ],
+ [
+  30,
+  "Imperial Suite Vista",
+  "Suites",
+  "Imperial Suite Vista — a luxury mountain retreat at Cascade Resorts Skardu. Warm wooden craftsmanship, plush premium bedding and serene views of the Karakoram orchards make this chamber a haven of quiet elegance.",
+  [
+   "Blackout thermal curtains",
+   "Luxury carpet flooring",
+   "Blackout drapes",
+   "Plush decorative cushions"
+  ],
+  {
+   "Guests": "2 Adults",
+   "Bed": "King Size",
+   "View": "Mountain & Orchard",
+   "Area": "450 sq ft",
+   "Extras": "Breakfast Included"
+  },
+  "shape-gold-frame"
+ ],
+ [
+  41,
+  "Serenity Master Suite",
+  "Suites",
+  "Serenity Master Suite — a luxury mountain retreat at Cascade Resorts Skardu. Warm wooden craftsmanship, plush premium bedding and serene views of the Karakoram orchards make this chamber a haven of quiet elegance.",
+  [
+   "Mountain-facing layout",
+   "Blackout thermal curtains",
+   "Luxury carpet flooring",
+   "Blackout drapes"
+  ],
+  {
+   "Guests": "2 Adults",
+   "Bed": "King Size",
+   "View": "Mountain & Orchard",
+   "Area": "450 sq ft",
+   "Extras": "Breakfast Included"
+  },
+  "shape-arch"
+ ],
+ [
+  43,
+  "Celestial Deluxe Suite",
+  "Suites",
+  "Celestial Deluxe Suite — a luxury mountain retreat at Cascade Resorts Skardu. Warm wooden craftsmanship, plush premium bedding and serene views of the Karakoram orchards make this chamber a haven of quiet elegance.",
+  [
+   "Luxury carpet flooring",
+   "Blackout drapes",
+   "Plush decorative cushions",
+   "Reading lamps"
+  ],
+  {
+   "Guests": "2 Adults",
+   "Bed": "King Size",
+   "View": "Mountain & Orchard",
+   "Area": "450 sq ft",
+   "Extras": "Breakfast Included"
+  },
+  "shape-hexagon"
+ ],
+ [
+  44,
+  "Skardu Pinnacle Suite",
+  "Suites",
+  "Skardu Pinnacle Suite — a luxury mountain retreat at Cascade Resorts Skardu. Warm wooden craftsmanship, plush premium bedding and serene views of the Karakoram orchards make this chamber a haven of quiet elegance.",
+  [
+   "Blackout drapes",
+   "Plush decorative cushions",
+   "Reading lamps",
+   "Double-glazed windows"
+  ],
+  {
+   "Guests": "2 Adults",
+   "Bed": "King Size",
+   "View": "Mountain & Orchard",
+   "Area": "450 sq ft",
+   "Extras": "Breakfast Included"
+  },
+  "shape-asymmetric"
+ ],
+ [
+  10,
+  "Skyline River View",
+  "Exteriors",
+  "Skyline River View — breathtaking open-air scenery around Cascade Resorts: towering Karakoram peaks, lush cherry & apricot orchards and the serene Shyok river valley.",
+  [
+   "Walking pathways",
+   "Natural sunlight",
+   "Open mountain sky",
+   "Lush orchards & trees"
+  ],
+  {
+   "Setting": "Outdoor Nature",
+   "View": "Karakoram Peaks",
+   "Air": "Fresh Alpine",
+   "Photography": "Excellent",
+   "Season": "Year Round"
+  },
+  "shape-gold-frame"
+ ],
+ [
+  12,
+  "Orchard & Mountain View",
+  "Exteriors",
+  "Orchard & Mountain View — breathtaking open-air scenery around Cascade Resorts: towering Karakoram peaks, lush cherry & apricot orchards and the serene Shyok river valley.",
+  [
+   "Open mountain sky",
+   "Lush orchards & trees",
+   "Fresh alpine air",
+   "Scenic photography spots"
+  ],
+  {
+   "Setting": "Outdoor Nature",
+   "View": "Karakoram Peaks",
+   "Air": "Fresh Alpine",
+   "Photography": "Excellent",
+   "Season": "Year Round"
+  },
+  "shape-asymmetric"
+ ],
+ [
+  14,
+  "River & Valley Panorama",
+  "Exteriors",
+  "River & Valley Panorama — breathtaking open-air scenery around Cascade Resorts: towering Karakoram peaks, lush cherry & apricot orchards and the serene Shyok river valley.",
+  [
+   "Fresh alpine air",
+   "Scenic photography spots",
+   "Walking pathways",
+   "Natural sunlight"
+  ],
+  {
+   "Setting": "Outdoor Nature",
+   "View": "Karakoram Peaks",
+   "Air": "Fresh Alpine",
+   "Photography": "Excellent",
+   "Season": "Year Round"
+  },
+  "shape-gold-frame"
+ ],
+ [
+  29,
+  "Garden Courtyard Vista",
+  "Exteriors",
+  "Garden Courtyard Vista — breathtaking open-air scenery around Cascade Resorts: towering Karakoram peaks, lush cherry & apricot orchards and the serene Shyok river valley.",
+  [
+   "Natural sunlight",
+   "Open mountain sky",
+   "Lush orchards & trees",
+   "Fresh alpine air"
+  ],
+  {
+   "Setting": "Outdoor Nature",
+   "View": "Karakoram Peaks",
+   "Air": "Fresh Alpine",
+   "Photography": "Excellent",
+   "Season": "Year Round"
+  },
+  "shape-arch"
+ ],
+ [
+  32,
+  "Shyok River Orchard View",
+  "Exteriors",
+  "Shyok River Orchard View — breathtaking open-air scenery around Cascade Resorts: towering Karakoram peaks, lush cherry & apricot orchards and the serene Shyok river valley.",
+  [
+   "Fresh alpine air",
+   "Scenic photography spots",
+   "Walking pathways",
+   "Natural sunlight"
+  ],
+  {
+   "Setting": "Outdoor Nature",
+   "View": "Karakoram Peaks",
+   "Air": "Fresh Alpine",
+   "Photography": "Excellent",
+   "Season": "Year Round"
+  },
+  "shape-asymmetric"
+ ],
+ [
+  33,
+  "Cherry Orchard Lawns",
+  "Exteriors",
+  "Cherry Orchard Lawns — breathtaking open-air scenery around Cascade Resorts: towering Karakoram peaks, lush cherry & apricot orchards and the serene Shyok river valley.",
+  [
+   "Scenic photography spots",
+   "Walking pathways",
+   "Natural sunlight",
+   "Open mountain sky"
+  ],
+  {
+   "Setting": "Outdoor Nature",
+   "View": "Karakoram Peaks",
+   "Air": "Fresh Alpine",
+   "Photography": "Excellent",
+   "Season": "Year Round"
+  },
+  "shape-arch"
+ ],
+ [
+  34,
+  "Orchard Garden Vista",
+  "Exteriors",
+  "Orchard Garden Vista — breathtaking open-air scenery around Cascade Resorts: towering Karakoram peaks, lush cherry & apricot orchards and the serene Shyok river valley.",
+  [
+   "Walking pathways",
+   "Natural sunlight",
+   "Open mountain sky",
+   "Lush orchards & trees"
+  ],
+  {
+   "Setting": "Outdoor Nature",
+   "View": "Karakoram Peaks",
+   "Air": "Fresh Alpine",
+   "Photography": "Excellent",
+   "Season": "Year Round"
+  },
+  "shape-gold-frame"
+ ],
+ [
+  35,
+  "Resort Garden Walkways",
+  "Exteriors",
+  "Resort Garden Walkways — breathtaking open-air scenery around Cascade Resorts: towering Karakoram peaks, lush cherry & apricot orchards and the serene Shyok river valley.",
+  [
+   "Natural sunlight",
+   "Open mountain sky",
+   "Lush orchards & trees",
+   "Fresh alpine air"
+  ],
+  {
+   "Setting": "Outdoor Nature",
+   "View": "Karakoram Peaks",
+   "Air": "Fresh Alpine",
+   "Photography": "Excellent",
+   "Season": "Year Round"
+  },
+  "shape-hexagon"
+ ],
+ [
+  36,
+  "Yellow Cottage Resort View",
+  "Exteriors",
+  "Yellow Cottage Resort View — breathtaking open-air scenery around Cascade Resorts: towering Karakoram peaks, lush cherry & apricot orchards and the serene Shyok river valley.",
+  [
+   "Open mountain sky",
+   "Lush orchards & trees",
+   "Fresh alpine air",
+   "Scenic photography spots"
+  ],
+  {
+   "Setting": "Outdoor Nature",
+   "View": "Karakoram Peaks",
+   "Air": "Fresh Alpine",
+   "Photography": "Excellent",
+   "Season": "Year Round"
+  },
+  "shape-asymmetric"
+ ],
+ [
+  37,
+  "Orchard Chalet Grounds",
+  "Exteriors",
+  "Orchard Chalet Grounds — breathtaking open-air scenery around Cascade Resorts: towering Karakoram peaks, lush cherry & apricot orchards and the serene Shyok river valley.",
+  [
+   "Lush orchards & trees",
+   "Fresh alpine air",
+   "Scenic photography spots",
+   "Walking pathways"
+  ],
+  {
+   "Setting": "Outdoor Nature",
+   "View": "Karakoram Peaks",
+   "Air": "Fresh Alpine",
+   "Photography": "Excellent",
+   "Season": "Year Round"
+  },
+  "shape-arch"
+ ],
+ [
+  39,
+  "Sunset Mountain Landscape",
+  "Exteriors",
+  "Sunset Mountain Landscape — breathtaking open-air scenery around Cascade Resorts: towering Karakoram peaks, lush cherry & apricot orchards and the serene Shyok river valley.",
+  [
+   "Scenic photography spots",
+   "Walking pathways",
+   "Natural sunlight",
+   "Open mountain sky"
+  ],
+  {
+   "Setting": "Outdoor Nature",
+   "View": "Karakoram Peaks",
+   "Air": "Fresh Alpine",
+   "Photography": "Excellent",
+   "Season": "Year Round"
+  },
+  "shape-hexagon"
+ ]
+]
