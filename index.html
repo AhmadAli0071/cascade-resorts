@@ -751,120 +751,7 @@
             pointer-events: none;
         }
 
-        /* ---------- MAGAZINE HERO ---------- */
-        .magazine-hero {
-            position: relative;
-            height: 82vh;
-            min-height: 480px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            overflow: hidden;
-            border-bottom: 1px solid rgba(212,175,55,0.5);
-        }
-        .hero-bg {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            object-fit: cover;
-            filter: brightness(0.45) contrast(1.15) saturate(1.1);
-            animation: kenburns 22s ease-in-out infinite alternate;
-        }
-        @keyframes kenburns {
-            0% { transform: scale(1) translate(0, 0); }
-            100% { transform: scale(1.14) translate(-1.5%, 1.5%); }
-        }
-        .hero-shade {
-            position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(700px 400px at 50% 45%, rgba(212,175,55,0.12), transparent 70%),
-                linear-gradient(to bottom, rgba(7,6,11,0.35), rgba(7,6,11,0.55));
-            z-index: 1;
-        }
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 880px;
-            padding: 55px 60px;
-            border: 1px solid rgba(212,175,55,0.55);
-            border-radius: 10px;
-            background: rgba(7,6,11,0.55);
-            backdrop-filter: blur(12px);
-            box-shadow: 0 30px 80px rgba(0,0,0,0.6), inset 0 0 60px rgba(212,175,55,0.06);
-            position: relative;
-        }
-        .hero-content::before, .hero-content::after {
-            content: "";
-            position: absolute;
-            width: 40px; height: 40px;
-            border: 1px solid rgba(212,175,55,0.7);
-        }
-        .hero-content::before { top: 8px; left: 8px; border-right: none; border-bottom: none; border-top-left-radius: 4px; }
-        .hero-content::after { bottom: 8px; right: 8px; border-left: none; border-top: none; border-bottom-right-radius: 4px; }
-        .hero-eyebrow {
-            display: block;
-            font-size: 0.7rem;
-            letter-spacing: 6px;
-            text-transform: uppercase;
-            color: var(--gold-light);
-            margin-bottom: 16px;
-            text-shadow: 0 0 14px rgba(212,175,55,0.6);
-        }
-        .hero-content h2 {
-            font-family: var(--font-title);
-            font-size: 4rem;
-            letter-spacing: 8px;
-            background: var(--gold-gradient);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shimmer 6s linear infinite;
-            margin-bottom: 12px;
-            font-weight: 700;
-        }
-        .hero-content p {
-            font-family: var(--font-serif);
-            font-size: 1.25rem;
-            color: var(--gold-light);
-            font-style: italic;
-            line-height: 1.8;
-        }
-        .hero-cta {
-            margin-top: 28px;
-        }
-        .scroll-hint {
-            position: absolute;
-            bottom: 26px; left: 50%;
-            transform: translateX(-50%);
-            z-index: 3;
-            width: 26px; height: 44px;
-            border: 1px solid rgba(212,175,55,0.6);
-            border-radius: 20px;
-            display: flex;
-            justify-content: center;
-            padding-top: 7px;
-        }
-        .scroll-hint span {
-            width: 4px; height: 9px;
-            border-radius: 3px;
-            background: var(--gold-primary);
-            animation: scrollDot 1.8s ease-in-out infinite;
-        }
-        @keyframes scrollDot {
-            0% { transform: translateY(0); opacity: 1; }
-            70% { transform: translateY(14px); opacity: 0; }
-            100% { transform: translateY(0); opacity: 0; }
-        }
-
-        /* ---------- MAGAZINE SECTIONS ---------- */
-        .magazine-section {
-            padding: 90px 5%;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+        /* ---------- SECTIONS ---------- */
         .section-header { text-align: center; margin-bottom: 55px; }
         .section-header .eyebrow { margin-bottom: 10px; }
         .section-header h2 {
@@ -875,83 +762,6 @@
             font-weight: 600;
             text-shadow: 0 4px 30px rgba(0,0,0,0.8);
         }
-
-        .mag-grid-featured {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-        }
-        .mag-card {
-            background: linear-gradient(160deg, #131120, #0d0c14);
-            border-radius: 12px;
-            border: 1px solid rgba(212,175,55,0.18);
-            transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-        }
-        .mag-card::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-        .mag-card:hover {
-            transform: translateY(-12px);
-            border-color: rgba(212,175,55,0.55);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.65), var(--gold-glow);
-        }
-        .mag-card:hover::before { opacity: 1; }
-        .mag-card .card-img-holder { height: 290px; padding: 16px; }
-        .mag-card .card-body { padding: 22px 26px 26px 26px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
-        .mag-card .card-body h3 { font-family: var(--font-title); font-size: 1.15rem; color: var(--gold-light); margin-bottom: 9px; letter-spacing: 1px; }
-        .mag-card .card-body p { font-size: 0.83rem; color: var(--text-muted); margin-bottom: 18px; line-height: 1.75; }
-
-        /* ---------- AMENITIES ---------- */
-        .amenities-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 22px;
-            margin-top: 45px;
-        }
-        .amenity-card {
-            background: linear-gradient(170deg, rgba(255,255,255,0.035), rgba(255,255,255,0.008));
-            border: 1px solid rgba(212,175,55,0.22);
-            padding: 30px 22px;
-            border-radius: 10px;
-            text-align: center;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        .amenity-card::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 50%;
-            transform: translateX(-50%);
-            width: 0; height: 2px;
-            background: var(--gold-gradient);
-            transition: width 0.45s ease;
-        }
-        .amenity-card:hover { background: rgba(212,175,55,0.08); border-color: var(--gold-primary); transform: translateY(-8px); box-shadow: var(--gold-glow); }
-        .amenity-card:hover::before { width: 100%; }
-        .amenity-card .amenity-icon {
-            width: 62px; height: 62px;
-            margin: 0 auto 16px auto;
-            border-radius: 50%;
-            border: 1px solid rgba(212,175,55,0.5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: radial-gradient(circle, rgba(212,175,55,0.15), transparent);
-            box-shadow: inset 0 0 16px rgba(212,175,55,0.15);
-        }
-        .amenity-card i { font-size: 1.6rem; color: var(--gold-primary); }
-        .amenity-card h4 { font-family: var(--font-title); font-size: 0.9rem; letter-spacing: 1.5px; color: var(--text-light); }
 
         /* ---------- GALLERY ---------- */
         .gallery-controls {
@@ -1349,8 +1159,6 @@
             }
             .book-mini-item { height: 118px; }
             .book-mini-grid { grid-template-columns: repeat(2, 1fr); }
-            .mag-grid-featured { grid-template-columns: 1fr; max-width: 540px; margin: 0 auto; }
-            .mag-card .card-img-holder { height: 230px; }
             .section-header h2 { font-size: 1.8rem; }
             .gallery-controls { flex-direction: column; align-items: stretch; }
             .search-box { min-width: 0; width: 100%; }
@@ -1367,7 +1175,7 @@
             .cover-title { font-size: 2rem; letter-spacing: 3px; }
             .cover-title span { letter-spacing: 6px; font-size: 1.1rem; }
             .cover-frame { inset: 10px; gap: 12px; }
-            .mag-card .card-img-holder { height: 200px; }
+            .section-header h2 { font-size: 1.4rem; }
             .lightbox-modal { padding: 12px; align-items: flex-start; overflow-y: auto; }
             .lightbox-content { max-height: none; }
             .lightbox-img-wrapper { max-height: 44vh; }
@@ -1395,12 +1203,8 @@
             .hero-content { padding: 24px 14px; }
             .hero-content h2 { font-size: 1.75rem; letter-spacing: 3px; }
             .hero-content p { font-size: 0.85rem; }
-            .hero-eyebrow { font-size: 0.7rem; }
-            .section-header h2 { font-size: 1.4rem; }
             .cover-title { font-size: 1.7rem; }
             .cover-title span { font-size: 1rem; letter-spacing: 4px; }
-            .mag-card .card-img-holder { height: 175px; }
-            .mag-card .card-body { padding: 16px 16px 18px 16px; }
             .gallery-item .shape-container { height: 200px; }
             .gallery-item .specs-grid { grid-template-columns: repeat(2, 1fr); }
             .lightbox-modal { padding: 8px; }
@@ -1426,7 +1230,6 @@
 
         <nav class="nav-tabs">
             <button class="tab-btn active" onclick="switchView('book-view')"><i class="fa-solid fa-book-open"></i> 3D FlipBook</button>
-            <button class="tab-btn" onclick="switchView('scroll-view')"><i class="fa-solid fa-scroll"></i> Magazine View</button>
             <button class="tab-btn" onclick="switchView('gallery-view')"><i class="fa-solid fa-border-all"></i> All 29 Photos</button>
         </nav>
 
@@ -1782,93 +1585,7 @@
         </div>
     </section>
 
-    <!-- ================= VIEW 2: CONTINUOUS MAGAZINE ================= -->
-    <section id="scroll-view" class="view-section">
-        <!-- HERO BANNER -->
-        <div class="magazine-hero">
-            <img src="images/img_36.jpg" class="hero-bg" alt="Resort Hero">
-            <div class="hero-shade"></div>
-            <div class="hero-content">
-                <span class="hero-eyebrow">✦ &nbsp;Est. Ghawari • Skardu&nbsp; ✦</span>
-                <h2>CASCADE RESORTS</h2>
-                <p>An Unrivaled Haven of Elegance<br>in Skardu's Ghanche District</p>
-                <div class="hero-cta">
-                    <button class="btn-gold-outline gold-filled" onclick="switchView('gallery-view')"><i class="fa-solid fa-border-all"></i> Explore the Collection</button>
-                </div>
-            </div>
-            <div class="scroll-hint"><span></span></div>
-        </div>
-
-        <!-- FEATURED SUITES SECTION -->
-        <div class="magazine-section">
-            <div class="section-header">
-                <span class="eyebrow">Unmatched Luxury</span>
-                <h2>Royal &amp; Executive Suites</h2>
-                <div class="gold-divider">❖</div>
-            </div>
-
-            <div class="mag-grid-featured">
-                <div class="mag-card">
-                    <div class="card-img-holder shape-arch">
-                        <div class="img-wrapper" onclick="openLightbox(0)">
-                            <img src="images/img_01.jpg" alt="Royal King Master Suite">
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <h3>Royal King Master Suite</h3>
-                        <p>Immerse yourself in hand-crafted wood paneling, indirect golden lighting, and plush king linens facing the mountains.</p>
-                        <button class="btn-gold-outline" onclick="openLightbox(0)"><i class="fa-solid fa-expand"></i> View Fullscreen</button>
-                    </div>
-                </div>
-
-                <div class="mag-card">
-                    <div class="card-img-holder shape-hexagon">
-                        <div class="img-wrapper" onclick="openLightbox(2)">
-                            <img src="images/img_03.jpg" alt="Executive Panorama Chamber">
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <h3>Executive Panorama Chamber</h3>
-                        <p>Floor-to-ceiling double-glazed windows capturing the serene beauty of Shyok river and surrounding orchards.</p>
-                        <button class="btn-gold-outline" onclick="openLightbox(2)"><i class="fa-solid fa-expand"></i> View Fullscreen</button>
-                    </div>
-                </div>
-
-                <div class="mag-card">
-                    <div class="card-img-holder shape-gold-frame">
-                        <div class="img-wrapper" onclick="openLightbox(11)">
-                            <img src="images/img_24.jpg" alt="Grand Heritage Bedroom">
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <h3>Grand Heritage Bedroom</h3>
-                        <p>Warm hand-crafted wood paneling, orthopedic king bedding and heritage-style bedside consoles.</p>
-                        <button class="btn-gold-outline" onclick="openLightbox(11)"><i class="fa-solid fa-expand"></i> View Fullscreen</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- AMENITIES SECTION -->
-        <div class="magazine-section" style="background: rgba(18,18,18,0.5); border-top: 1px solid rgba(197,160,89,0.2); border-bottom: 1px solid rgba(197,160,89,0.2);">
-            <div class="section-header">
-                <span class="eyebrow">World-Class Experience</span>
-                <h2>Resort Amenities &amp; Services</h2>
-                <div class="gold-divider">❖</div>
-            </div>
-
-                <div class="amenity-card"><div class="amenity-icon"><i class="fa-solid fa-hotel"></i></div><h4>Luxury Cottages</h4></div>
-                <div class="amenity-card"><div class="amenity-icon"><i class="fa-solid fa-utensils"></i></div><h4>Riverbank Dining</h4></div>
-                <div class="amenity-card"><div class="amenity-icon"><i class="fa-solid fa-tree"></i></div><h4>600 Kanal Orchards</h4></div>
-                <div class="amenity-card"><div class="amenity-icon"><i class="fa-solid fa-fire"></i></div><h4>Private Bonfire Pits</h4></div>
-                <div class="amenity-card"><div class="amenity-icon"><i class="fa-solid fa-wifi"></i></div><h4>24/7 High-Speed WiFi</h4></div>
-                <div class="amenity-card"><div class="amenity-icon"><i class="fa-solid fa-bolt"></i></div><h4>Uninterrupted Power</h4></div>
-                <div class="amenity-card"><div class="amenity-icon"><i class="fa-solid fa-truck-monster"></i></div><h4>Jeep &amp; ATV Safaris</h4></div>
-                <div class="amenity-card"><div class="amenity-icon"><i class="fa-solid fa-water"></i></div><h4>Shyok River Rafting</h4></div>
-        </div>
-    </section>
-
-    <!-- ================= VIEW 3: FULL 44-IMAGE GALLERY INDEX ================= -->
+    <!-- ================= VIEW 2: FULL 29-IMAGE GALLERY INDEX ================= -->
     <section id="gallery-view" class="view-section">
         <div style="padding: 40px 5%; max-width: 1500px; margin: 0 auto;">
             <div class="section-header">
@@ -2166,7 +1883,7 @@
         }
 
         function decorateCards() {
-            document.querySelectorAll('.mag-card, .gallery-item, .amenity-card').forEach((el, i) => {
+            document.querySelectorAll('.gallery-item').forEach((el, i) => {
                 el.classList.add('fade-up');
                 el.style.transitionDelay = (i % 4) * 0.08 + 's';
             });
